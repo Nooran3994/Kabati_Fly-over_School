@@ -8,7 +8,7 @@ export function Footer() {
           <div>
             <h3 className="text-lg font-semibold mb-4">About Us</h3>
             <p className="text-gray-300 text-sm leading-relaxed">
-              Kabati Fly-over Primary School is committed to unlocking every child's
+              Kabati Fly-over School is committed to unlocking every child's
               potential to the fullest, fostering academic excellence and holistic
               character development.
             </p>
@@ -34,7 +34,7 @@ export function Footer() {
               </li>
               <li>
                 <a href="#" className="hover:text-green-400 transition-colors">
-                  News & Events
+                  News &amp; Events
                 </a>
               </li>
             </ul>
@@ -61,7 +61,7 @@ export function Footer() {
 
         <div className="border-t border-gray-700 mt-8 pt-8 text-center text-sm text-gray-400">
           <p>
-            &copy; {new Date().getFullYear()} Kabati Fly-over Primary School. All rights
+            &copy; {new Date().getFullYear()} Kabati Fly-over School. All rights
             reserved.
           </p>
         </div>

@@ -21,12 +21,20 @@ export function Navigation({ currentPage, onNavigate }: NavigationProps) {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-20">
           <div className="flex items-center space-x-3">
-            <div className="w-12 h-12 bg-green-500 rounded-full flex items-center justify-center">
-              <span className="text-white font-bold text-xl">K</span>
-            </div>
+            <img
+              src="/logo.png"
+              alt="Kabati Fly-over School Logo"
+              className="w-12 h-12 object-contain"
+              onError={(e) => {
+                // Fallback: try imgur directly if local file not found
+                const target = e.currentTarget;
+                target.onerror = null;
+                target.src = 'https://i.imgur.com/ZdRarLd.jpeg';
+              }}
+            />
             <div>
               <h1 className="text-xl font-bold text-gray-800">
-                Kabati Fly-over Primary School
+                Kabati Fly-over School
               </h1>
               <p className="text-sm text-green-600 italic">Shining to the top</p>
             </div>

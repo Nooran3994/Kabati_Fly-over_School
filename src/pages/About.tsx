@@ -17,7 +17,7 @@ export function About() {
           <h2 className="text-3xl font-bold mb-6 text-gray-800">Our Story</h2>
           <div className="prose prose-lg text-gray-700 leading-relaxed">
             <p className="mb-4">
-              Kabati Fly-over Primary School has been a cornerstone of educational
+              Kabati Fly-over School has been a cornerstone of educational
               excellence in Kenol, Kenya. Our institution is dedicated to providing a
               nurturing and stimulating environment where every child can discover their
               unique talents and reach their fullest potential.

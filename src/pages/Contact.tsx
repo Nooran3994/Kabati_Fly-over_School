@@ -20,7 +20,7 @@ export function Contact() {
               <p className="text-gray-700 mb-8 leading-relaxed">
                 Whether you're a parent interested in enrolling your child, have questions
                 about our programs, or simply want to learn more about Kabati Fly-over
-                Primary School, we're here to help. Feel free to reach out to us using
+                School, we're here to help. Feel free to reach out to us using
                 any of the methods below.
               </p>
 
@@ -176,7 +176,7 @@ export function Contact() {
           </h2>
           <p className="text-center text-gray-700 mb-8 max-w-2xl mx-auto">
             Follow us on social media to stay updated with the latest news, events, and
-            achievements at Kabati Fly-over Primary School.
+            achievements at Kabati Fly-over School.
           </p>
           <div className="flex justify-center space-x-6">
             <a
