@@ -52,9 +52,7 @@ export function Home() {
             <h1 className="text-4xl md:text-5xl font-bold mb-4">
               Welcome to Kabati Fly-over School
             </h1>
-            <p className="text-xl md:text-2xl mb-6 text-green-100">
-              Shining to the top
-            </p>
+
             <p className="text-lg md:text-xl max-w-3xl mx-auto leading-relaxed">
               Unlocking your child's potential to the fullest through quality education,
               strong discipline and a supportive learning environment.
