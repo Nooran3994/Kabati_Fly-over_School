@@ -15,7 +15,7 @@ export function About() {
     {
       year: '2007',
       title: 'Opening Day',
-      desc: 'Kabati Fly-over School opens its doors — operating from rented premises near the Kabati Flyover, next to St. Paul ACK Church. Sixty-four learners from Standard One to Six walk in on the first day. With skeleton staff led by Administrator Madam Carolyn Wanjiru, the journey begins.',
+      desc: "Kabati Fly-over School opens its doors — operating from rented premises near the Kabati Flyover, next to St. Paul ACK Church. Sixty-four learners from Standard One to Six walk in on the first day. With skeleton staff led by Administrator Madam Carolyn Wanjiru, the journey begins.",
     },
     {
       year: '2009',
@@ -25,33 +25,48 @@ export function About() {
     {
       year: '2010s',
       title: 'Growth & Expansion',
-      desc: 'Word spreads fast. Parents are drawn by the school\'s strong discipline, consistent performance, co-curricular activities, lunch programme and learner transport. New classrooms are added, the teaching staff grows, and facilities improve year after year.',
+      desc: "Word spreads fast. Parents are drawn by the school's strong discipline, consistent performance, co-curricular activities, lunch programme and learner transport. New classrooms are added, the teaching staff grows, and facilities improve year after year.",
     },
     {
       year: 'Today',
       title: 'A Thriving Institution',
-      desc: 'Kabati Flyover School Limited now serves 975 learners from Pre-Primary to Junior School, supported by 55 dedicated staff members — 32 teaching and 23 non-teaching. The school operates under Kenya\'s Competency Based Curriculum with modern facilities and an unwavering commitment to excellence.',
+      desc: "Kabati Flyover School Limited now serves 975 learners from Pre-Primary to Junior School, supported by 55 dedicated staff members — 32 teaching and 23 non-teaching. The school operates under Kenya's Competency Based Curriculum with modern facilities and an unwavering commitment to excellence.",
     },
   ];
 
   const stats = [
-    { icon: Users, value: '975', label: 'Learners Enrolled' },
-    { icon: BookOpen, value: '55', label: 'Staff Members' },
-    { icon: Award, value: '32', label: 'Teaching Staff' },
-    { icon: Heart, value: '18+', label: 'Years of Excellence' },
+    { icon: Users,    value: '975',  label: 'Learners Enrolled' },
+    { icon: BookOpen, value: '55',   label: 'Staff Members' },
+    { icon: Award,    value: '32',   label: 'Teaching Staff' },
+    { icon: Heart,    value: '18+',  label: 'Years of Excellence' },
   ];
 
   return (
     <div>
-      {/* Hero */}
-      <section className="bg-gradient-to-r from-green-500 to-green-600 text-white py-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h1 className="text-4xl md:text-5xl font-bold text-center mb-4">About Us</h1>
-          <p className="text-xl text-center text-green-100">Building the future, one child at a time</p>
+      {/* ── Hero with background image ── */}
+      <section
+        className="relative text-white"
+        style={{
+          backgroundImage: 'url(/about-hero.png)',
+          backgroundSize: 'cover',
+          backgroundPosition: 'center 15%',
+          minHeight: '520px',
+          display: 'flex',
+          alignItems: 'center',
+        }}
+      >
+        <div className="absolute inset-0 bg-gradient-to-r from-green-900/80 to-green-700/55"></div>
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full py-16">
+          <h1 className="text-4xl md:text-5xl font-bold text-center mb-4 drop-shadow-lg">
+            About Us
+          </h1>
+          <p className="text-xl text-center text-green-100 drop-shadow">
+            Building the future, one child at a time
+          </p>
         </div>
       </section>
 
-      {/* Stats bar */}
+      {/* ── Stats bar ── */}
       <section className="bg-white border-b border-gray-100 py-10 shadow-sm">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
@@ -68,7 +83,7 @@ export function About() {
         </div>
       </section>
 
-      {/* Our Story */}
+      {/* ── Our Story / Timeline ── */}
       <section className="py-16 bg-gray-50">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
@@ -79,7 +94,6 @@ export function About() {
             </p>
           </div>
 
-          {/* Timeline */}
           <div className="relative">
             {/* Vertical line */}
             <div className="absolute left-6 md:left-1/2 top-0 bottom-0 w-0.5 bg-green-200 transform md:-translate-x-0.5"></div>
@@ -92,10 +106,10 @@ export function About() {
                     index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'
                   }`}
                 >
-                  {/* Mobile/desktop dot */}
+                  {/* Dot */}
                   <div className="absolute left-6 md:left-1/2 w-4 h-4 bg-green-500 rounded-full border-4 border-white shadow-md transform -translate-x-1.5 md:-translate-x-2 mt-1.5 z-10"></div>
 
-                  {/* Content card */}
+                  {/* Card */}
                   <div
                     className={`ml-14 md:ml-0 md:w-5/12 bg-white rounded-xl shadow-sm border border-gray-100 p-6
                       transition-all duration-300 ease-in-out
@@ -118,7 +132,7 @@ export function About() {
                     <p className="text-gray-600 text-sm leading-relaxed">{item.desc}</p>
                   </div>
 
-                  {/* Spacer for alternating layout */}
+                  {/* Spacer */}
                   <div className="hidden md:block md:w-5/12"></div>
                 </div>
               ))}
@@ -127,13 +141,12 @@ export function About() {
         </div>
       </section>
 
-      {/* Mission, Vision, Values — hover animated cards */}
+      {/* ── Mission / Vision / Values — hover animated cards ── */}
       <section className="py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-3xl font-bold text-center text-gray-800 mb-12">Who We Are</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
 
-            {/* Mission */}
             <div className="group relative bg-white rounded-2xl shadow-md border border-gray-100 p-8 overflow-hidden
               transition-all duration-500 ease-in-out
               hover:shadow-2xl hover:-translate-y-2 hover:border-green-400 cursor-default">
@@ -152,7 +165,6 @@ export function About() {
               </div>
             </div>
 
-            {/* Vision */}
             <div className="group relative bg-white rounded-2xl shadow-md border border-gray-100 p-8 overflow-hidden
               transition-all duration-500 ease-in-out
               hover:shadow-2xl hover:-translate-y-2 hover:border-green-400 cursor-default">
@@ -171,7 +183,6 @@ export function About() {
               </div>
             </div>
 
-            {/* Values */}
             <div className="group relative bg-white rounded-2xl shadow-md border border-gray-100 p-8 overflow-hidden
               transition-all duration-500 ease-in-out
               hover:shadow-2xl hover:-translate-y-2 hover:border-green-400 cursor-default">
@@ -184,10 +195,12 @@ export function About() {
                   Core Values
                 </h3>
                 <ul className="text-gray-600 leading-relaxed space-y-1">
-                  <li className="flex items-center gap-2"><span className="w-2 h-2 bg-green-500 rounded-full inline-block"></span> Teamwork & Commitment</li>
-                  <li className="flex items-center gap-2"><span className="w-2 h-2 bg-green-500 rounded-full inline-block"></span> Discipline & Integrity</li>
-                  <li className="flex items-center gap-2"><span className="w-2 h-2 bg-green-500 rounded-full inline-block"></span> Respect & Responsibility</li>
-                  <li className="flex items-center gap-2"><span className="w-2 h-2 bg-green-500 rounded-full inline-block"></span> Excellence in all we do</li>
+                  {['Teamwork & Commitment', 'Discipline & Integrity', 'Respect & Responsibility', 'Excellence in all we do'].map((v) => (
+                    <li key={v} className="flex items-center gap-2">
+                      <span className="w-2 h-2 bg-green-500 rounded-full inline-block flex-shrink-0"></span>
+                      {v}
+                    </li>
+                  ))}
                 </ul>
               </div>
             </div>
@@ -195,7 +208,7 @@ export function About() {
         </div>
       </section>
 
-      {/* Leadership */}
+      {/* ── Leadership ── */}
       <section className="py-16 bg-gray-50">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-3xl font-bold text-center text-gray-800 mb-4">Our Leadership</h2>
@@ -210,11 +223,11 @@ export function About() {
             <h3 className="text-lg font-bold text-gray-800 mb-4">Chairmen Through the Years</h3>
             <div className="flex flex-wrap gap-3">
               {[
-                { name: 'Mr. Wambugu', role: 'Founder Chairman' },
-                { name: 'Mr. Njoroge', role: 'Former Chairman' },
-                { name: 'Mr. Kamau', role: 'Former Chairman' },
-                { name: 'Mr. Muraguri', role: 'Former Chairman' },
-                { name: 'Mr. Mburu', role: 'Current Chairman' },
+                { name: 'Mr. Wambugu',  role: 'Founder Chairman'  },
+                { name: 'Mr. Njoroge',  role: 'Former Chairman'   },
+                { name: 'Mr. Kamau',    role: 'Former Chairman'   },
+                { name: 'Mr. Muraguri', role: 'Former Chairman'   },
+                { name: 'Mr. Mburu',    role: 'Current Chairman'  },
               ].map((person) => (
                 <div
                   key={person.name}
@@ -230,27 +243,27 @@ export function About() {
               <h3 className="text-lg font-bold text-gray-800 mb-2">School Administration</h3>
               <p className="text-gray-600 text-sm leading-relaxed">
                 The day-to-day running of the school is managed by our School Administrator,
-                <strong> Madam Carolyn Wanjiru</strong> — the only Administrative Officer the school
-                has had since inception, a testament to the stability and continuity that has
-                defined Kabati Fly-over School from day one.
+                <strong> Madam Carolyn Wanjiru</strong> — the only Administrative Officer the
+                school has had since inception, a testament to the stability and continuity
+                that has defined Kabati Fly-over School from day one.
               </p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* What Sets Us Apart */}
+      {/* ── What Sets Us Apart ── */}
       <section className="py-16">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-3xl font-bold mb-8 text-gray-800 text-center">What Sets Us Apart</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {[
-              { title: 'Experienced Teachers', desc: 'Qualified, passionate staff trained in CBC delivery who genuinely invest in every learner\'s success.' },
-              { title: 'Strong Discipline', desc: 'A structured environment that shapes responsible, focused and respectful learners.' },
-              { title: 'Full CBC Coverage', desc: 'Complete delivery from Pre-Primary (PP1–PP2) through Upper Primary (Grade 6) and Junior School (Grade 9).' },
-              { title: 'Community Roots', desc: 'Founded by parents, for parents — our strong community bond continues to drive everything we do.' },
+              { title: 'Experienced Teachers',    desc: "Qualified, passionate staff trained in CBC delivery who genuinely invest in every learner's success." },
+              { title: 'Strong Discipline',        desc: 'A structured environment that shapes responsible, focused and respectful learners.' },
+              { title: 'Full CBC Coverage',        desc: 'Complete delivery from Pre-Primary (PP1–PP2) through Upper Primary (Grade 6) and Junior School (Grade 9).' },
+              { title: 'Community Roots',          desc: 'Founded by parents, for parents — our strong community bond continues to drive everything we do.' },
               { title: 'Co-Curricular Activities', desc: 'Sports, arts, clubs and learner transport — a complete school experience beyond the classroom.' },
-              { title: 'Proven Track Record', desc: 'Since our first KCPE class in 2009, we have consistently produced top performers who join national schools.' },
+              { title: 'Proven Track Record',      desc: 'Since our first KCPE class in 2009, we have consistently produced top performers who join national schools.' },
             ].map(({ title, desc }) => (
               <div
                 key={title}
