@@ -56,9 +56,8 @@ export function Home() {
               Shining to the top
             </p>
             <p className="text-lg md:text-xl max-w-3xl mx-auto leading-relaxed">
-              Providing quality education, strong discipline and a supportive learning
-              environment for learners in Kabati area, Kimorori Wempa ward,
-              Murang'a South Sub county, Muranga county.
+              Unlocking your child's potential to the fullest through quality education,
+              strong discipline and a supportive learning environment.
             </p>
           </div>
         </div>
