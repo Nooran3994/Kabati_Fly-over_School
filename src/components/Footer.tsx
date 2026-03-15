@@ -8,35 +8,19 @@ export function Footer() {
           <div>
             <h3 className="text-lg font-semibold mb-4">About Us</h3>
             <p className="text-gray-300 text-sm leading-relaxed">
-              Kabati Fly-over School is committed to unlocking every child's
-              potential to the fullest, fostering academic excellence and holistic
-              character development.
+              Kabati Flyover School Limited is a Private Educational institution committed
+              to unlocking every child's potential through quality education, strong
+              discipline and holistic character development.
             </p>
           </div>
 
           <div>
             <h3 className="text-lg font-semibold mb-4">Quick Links</h3>
             <ul className="space-y-2 text-sm text-gray-300">
-              <li>
-                <a href="#" className="hover:text-green-400 transition-colors">
-                  Admissions
-                </a>
-              </li>
-              <li>
-                <a href="#" className="hover:text-green-400 transition-colors">
-                  Academic Calendar
-                </a>
-              </li>
-              <li>
-                <a href="#" className="hover:text-green-400 transition-colors">
-                  School Policies
-                </a>
-              </li>
-              <li>
-                <a href="#" className="hover:text-green-400 transition-colors">
-                  News &amp; Events
-                </a>
-              </li>
+              <li><a href="#" className="hover:text-green-400 transition-colors">Admissions</a></li>
+              <li><a href="#" className="hover:text-green-400 transition-colors">Academic Calendar</a></li>
+              <li><a href="#" className="hover:text-green-400 transition-colors">School Policies</a></li>
+              <li><a href="#" className="hover:text-green-400 transition-colors">News &amp; Events</a></li>
             </ul>
           </div>
 
@@ -45,7 +29,11 @@ export function Footer() {
             <div className="space-y-3 text-sm text-gray-300">
               <div className="flex items-start space-x-3">
                 <MapPin size={18} className="text-green-400 mt-1 flex-shrink-0" />
-                <span>Kenol, Kenya</span>
+                <span>
+                  Kabati area, Kimorori Wempa ward,<br />
+                  Murang'a South Sub county,<br />
+                  Muranga county, Kenya
+                </span>
               </div>
               <div className="flex items-center space-x-3">
                 <Phone size={18} className="text-green-400 flex-shrink-0" />
@@ -60,10 +48,7 @@ export function Footer() {
         </div>
 
         <div className="border-t border-gray-700 mt-8 pt-8 text-center text-sm text-gray-400">
-          <p>
-            &copy; {new Date().getFullYear()} Kabati Fly-over School. All rights
-            reserved.
-          </p>
+          <p>&copy; {new Date().getFullYear()} Kabati Fly-over School. All rights reserved.</p>
         </div>
       </div>
     </footer>
