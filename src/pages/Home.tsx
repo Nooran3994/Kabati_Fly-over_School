@@ -2,7 +2,7 @@ import { BookOpen, Users, Award, GraduationCap, FlaskConical, Globe, Palette, Sp
 
 export function Home() {
 
-  const prePreimary = [
+  const prePrimary = [
     { icon: Languages, label: 'Language Activities', desc: 'Early communication, listening and speaking skills in English and Kiswahili.' },
     { icon: Calculator, label: 'Mathematical Activities', desc: 'Play-based number sense, shapes, patterns and basic counting.' },
     { icon: Globe, label: 'Environmental Activities', desc: 'Exploring the immediate natural and social environment through play.' },
@@ -45,15 +45,24 @@ export function Home() {
 
   return (
     <div>
-      {/* Hero */}
-      <section className="bg-gradient-to-r from-green-500 to-green-600 text-white py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      {/* ── Hero with background image ── */}
+      <section
+        className="relative text-white py-28"
+        style={{
+          backgroundImage: 'url(/home-hero.png)',
+          backgroundSize: 'cover',
+          backgroundPosition: 'center 30%',
+        }}
+      >
+        {/* Overlay — green gradient keeps text readable */}
+        <div className="absolute inset-0 bg-gradient-to-r from-green-900/80 to-green-700/60"></div>
+
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
-            <h1 className="text-4xl md:text-5xl font-bold mb-4">
+            <h1 className="text-4xl md:text-5xl font-bold mb-6 drop-shadow-lg">
               Welcome to Kabati Fly-over School
             </h1>
-
-            <p className="text-lg md:text-xl max-w-3xl mx-auto leading-relaxed">
+            <p className="text-lg md:text-xl max-w-3xl mx-auto leading-relaxed drop-shadow text-green-50">
               Unlocking your child's potential to the fullest through quality education,
               strong discipline and a supportive learning environment.
             </p>
@@ -61,7 +70,7 @@ export function Home() {
         </div>
       </section>
 
-      {/* Feature cards */}
+      {/* ── Feature cards ── */}
       <section className="py-16 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -111,7 +120,7 @@ export function Home() {
         </div>
       </section>
 
-      {/* CBC Curriculum Offerings */}
+      {/* ── CBC Curriculum Offerings ── */}
       <section className="py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
@@ -132,7 +141,7 @@ export function Home() {
               <div className="flex-1 h-0.5 bg-gray-200 ml-4"></div>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6">
-              {prePreimary.map(({ icon: Icon, label, desc }) => (
+              {prePrimary.map(({ icon: Icon, label, desc }) => (
                 <div key={label} className="bg-white border border-gray-100 rounded-lg p-5 shadow-sm hover:shadow-md transition-shadow">
                   <div className="w-10 h-10 bg-green-100 rounded-full flex items-center justify-center mb-3">
                     <Icon className="text-green-600" size={20} />
@@ -209,12 +218,10 @@ export function Home() {
         </div>
       </section>
 
-      {/* Join Our Community CTA */}
+      {/* ── Join Our Community CTA ── */}
       <section className="py-16 bg-green-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl font-bold mb-6 text-gray-800">
-            Join Our Community
-          </h2>
+          <h2 className="text-3xl font-bold mb-6 text-gray-800">Join Our Community</h2>
           <p className="text-lg text-gray-700 max-w-2xl mx-auto mb-8 leading-relaxed">
             Discover how Kabati Fly-over School can help your child reach their full
             potential. Contact us today to learn more about admissions and our programmes.
