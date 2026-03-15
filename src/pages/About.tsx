@@ -6,9 +6,7 @@ export function About() {
       <section className="bg-gradient-to-r from-green-500 to-green-600 text-white py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h1 className="text-4xl md:text-5xl font-bold text-center mb-4">About Us</h1>
-          <p className="text-xl text-center text-green-100">
-            Building the future, one child at a time
-          </p>
+          <p className="text-xl text-center text-green-100">Building the future, one child at a time</p>
         </div>
       </section>
 
@@ -17,22 +15,24 @@ export function About() {
           <h2 className="text-3xl font-bold mb-6 text-gray-800">Our Story</h2>
           <div className="prose prose-lg text-gray-700 leading-relaxed">
             <p className="mb-4">
-              Kabati Fly-over School has been a cornerstone of educational
-              excellence in Kenol, Kenya. Our institution is dedicated to providing a
-              nurturing and stimulating environment where every child can discover their
-              unique talents and reach their fullest potential.
+              Kabati Flyover School Limited is a Private Educational institution located in
+              Kabati area, Kimorori Wempa ward, Murang'a South Sub county, Muranga county.
+              The school is committed to providing quality education, strong discipline and
+              a supportive learning environment for learners from Pre-Primary, Upper Primary
+              and Junior School levels.
             </p>
             <p className="mb-4">
               We believe that education extends beyond textbooks and examinations. Our
-              approach combines rigorous academic standards with character development,
-              ensuring that our students grow into well-rounded individuals who are
-              prepared to make positive contributions to society.
+              approach combines rigorous academic standards under Kenya's Competency Based
+              Curriculum (CBC) with character development, ensuring that our students grow
+              into well-rounded individuals who are prepared to make positive contributions
+              to society.
             </p>
             <p>
               Through our commitment to teamwork and dedication, we have created a
-              community where students, teachers, and parents work together to achieve
-              common goals. Our track record of success speaks to the quality of
-              education and care we provide to every student who walks through our doors.
+              community where students, teachers and parents work together to achieve
+              common goals. Our track record of success speaks to the quality of education
+              and care we provide to every learner who joins our institution.
             </p>
           </div>
         </div>
@@ -47,7 +47,8 @@ export function About() {
               </div>
               <h3 className="text-2xl font-bold mb-4 text-gray-800">Our Mission</h3>
               <p className="text-gray-700 leading-relaxed">
-                Unlocking Your Child's potential to the fullest
+                Unlocking your child's potential to the fullest through quality education,
+                strong discipline and a supportive learning environment.
               </p>
             </div>
 
@@ -58,7 +59,7 @@ export function About() {
               <h3 className="text-2xl font-bold mb-4 text-gray-800">Our Vision</h3>
               <p className="text-gray-700 leading-relaxed">
                 To be a centre of academic excellence aimed at producing a holistic
-                character.
+                character ready for the modern world.
               </p>
             </div>
 
@@ -68,7 +69,8 @@ export function About() {
               </div>
               <h3 className="text-2xl font-bold mb-4 text-gray-800">Core Values</h3>
               <p className="text-gray-700 leading-relaxed">
-                Teamwork and commitment
+                Teamwork, commitment, discipline, integrity and respect — values that guide
+                every learner through their educational journey.
               </p>
             </div>
           </div>
@@ -77,66 +79,48 @@ export function About() {
 
       <section className="py-16">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl font-bold mb-8 text-gray-800 text-center">
-            What Sets Us Apart
-          </h2>
+          <h2 className="text-3xl font-bold mb-8 text-gray-800 text-center">What Sets Us Apart</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div className="border-l-4 border-green-500 pl-6 py-2">
-              <h3 className="text-xl font-semibold mb-2 text-gray-800">
-                Experienced Teachers
-              </h3>
+              <h3 className="text-xl font-semibold mb-2 text-gray-800">Experienced Teachers</h3>
               <p className="text-gray-600">
                 Our dedicated staff brings years of teaching experience and a genuine
-                passion for nurturing young minds.
+                passion for nurturing young minds under the CBC framework.
               </p>
             </div>
-
             <div className="border-l-4 border-green-500 pl-6 py-2">
-              <h3 className="text-xl font-semibold mb-2 text-gray-800">
-                Modern Facilities
-              </h3>
+              <h3 className="text-xl font-semibold mb-2 text-gray-800">Strong Discipline</h3>
               <p className="text-gray-600">
-                Well-equipped classrooms and learning spaces that create an optimal
-                environment for education.
+                A structured and disciplined environment that builds responsible, focused
+                and respectful learners.
               </p>
             </div>
-
             <div className="border-l-4 border-green-500 pl-6 py-2">
-              <h3 className="text-xl font-semibold mb-2 text-gray-800">
-                Comprehensive Curriculum
-              </h3>
+              <h3 className="text-xl font-semibold mb-2 text-gray-800">CBC-Aligned Curriculum</h3>
               <p className="text-gray-600">
-                A balanced curriculum that emphasizes both academic excellence and
-                personal development.
+                Full delivery of Kenya's Competency Based Curriculum from Pre-Primary
+                through Junior Secondary School (Grade 9).
               </p>
             </div>
-
             <div className="border-l-4 border-green-500 pl-6 py-2">
-              <h3 className="text-xl font-semibold mb-2 text-gray-800">
-                Community Focus
-              </h3>
+              <h3 className="text-xl font-semibold mb-2 text-gray-800">Community Focus</h3>
               <p className="text-gray-600">
-                Strong partnerships with parents and the local community to support
-                student success.
+                Strong partnerships with parents and the local Kabati community to support
+                every learner's success.
               </p>
             </div>
-
             <div className="border-l-4 border-green-500 pl-6 py-2">
-              <h3 className="text-xl font-semibold mb-2 text-gray-800">
-                Co-Curricular Activities
-              </h3>
+              <h3 className="text-xl font-semibold mb-2 text-gray-800">Co-Curricular Activities</h3>
               <p className="text-gray-600">
-                Diverse programs in sports, arts, and clubs that help students discover
-                and develop their talents.
+                Diverse programmes in sports, arts and clubs that help students discover
+                and develop their talents beyond the classroom.
               </p>
             </div>
-
             <div className="border-l-4 border-green-500 pl-6 py-2">
-              <h3 className="text-xl font-semibold mb-2 text-gray-800">
-                Safe Environment
-              </h3>
+              <h3 className="text-xl font-semibold mb-2 text-gray-800">Safe Environment</h3>
               <p className="text-gray-600">
-                A secure and welcoming campus where students feel valued and protected.
+                A secure and welcoming campus in Kabati area where every learner feels
+                valued, safe and supported.
               </p>
             </div>
           </div>
