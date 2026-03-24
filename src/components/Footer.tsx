@@ -8,7 +8,7 @@ export function Footer() {
           <div>
             <h3 className="text-lg font-semibold mb-4">About Us</h3>
             <p className="text-gray-300 text-sm leading-relaxed">
-              Kabati Flyover School Limited is a Private Educational institution committed
+              Kabati Flyover School is a Private Educational institution committed
               to unlocking every child's potential through quality education, strong
               discipline and holistic character development.
             </p>
@@ -32,7 +32,8 @@ export function Footer() {
                 <span>
                   Kabati area, Kimorori Wempa ward,<br />
                   Murang'a South Sub county,<br />
-                  Muranga county, Kenya
+                  Muranga county, Kenya<br />
+                  P.O. Box 195
                 </span>
               </div>
               <div className="flex items-center space-x-3">
