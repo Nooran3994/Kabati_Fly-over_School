@@ -198,7 +198,7 @@ export function Home() {
             </p>
           </div>
 
-          {/* Pre-Primary */}
+          {/* ── Pre-Primary ── */}
           <div className="mb-12" ref={prePrimaryRef.ref}>
             <div className="flex items-center mb-6" style={slideIn(prePrimaryRef.inView)}>
               <div className="bg-green-400 text-white px-5 py-1.5 rounded-full font-semibold text-sm whitespace-nowrap">
@@ -206,6 +206,89 @@ export function Home() {
               </div>
               <div className="flex-1 h-0.5 bg-gray-200 ml-4"></div>
             </div>
+
+            {/* ── Photo introduction ── */}
+            <div
+              className="mb-8"
+              style={{
+                opacity: prePrimaryRef.inView ? 1 : 0,
+                transform: prePrimaryRef.inView ? 'translateY(0)' : 'translateY(24px)',
+                transition: 'opacity 0.65s ease 0.1s, transform 0.65s ease 0.1s',
+              }}
+            >
+              <div className="grid grid-cols-1 md:grid-cols-5 gap-4" style={{ minHeight: '320px' }}>
+
+                {/* ── Large photo — PP1 (spans 3 cols) ── */}
+                <div className="md:col-span-3 relative group overflow-hidden rounded-2xl shadow-md" style={{ minHeight: '320px' }}>
+                  <img
+                    src="/pp-classroom-1.jpg"
+                    alt="PP1 learners engaged in early learning activities at Kabati Fly-over School"
+                    className="w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-105"
+                    style={{ minHeight: '320px' }}
+                  />
+                  {/* Dark gradient overlay */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent" />
+                  {/* Badge + caption */}
+                  <div className="absolute bottom-0 left-0 p-5">
+                    <span className="inline-block bg-green-400 text-white text-xs font-bold px-3 py-1 rounded-full mb-2 uppercase tracking-wider">
+                      Pre-Primary 1
+                    </span>
+                    <p className="text-white text-sm font-medium leading-snug drop-shadow max-w-xs">
+                      Curious minds at work — early learning comes alive through play and discovery.
+                    </p>
+                  </div>
+                  {/* Subtle shine on hover */}
+                  <div className="absolute inset-0 bg-green-400/0 group-hover:bg-green-400/10 transition-colors duration-500 pointer-events-none" />
+                </div>
+
+                {/* ── Right column — photo + callout ── */}
+                <div className="md:col-span-2 flex flex-col gap-4">
+
+                  {/* PP2 photo */}
+                  <div className="relative group overflow-hidden rounded-2xl shadow-md flex-1" style={{ minHeight: '160px' }}>
+                    <img
+                      src="/pp-classroom-2.jpg"
+                      alt="PP2 learners in a vibrant, learning-rich classroom at Kabati Fly-over School"
+                      className="w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-105"
+                      style={{ minHeight: '160px' }}
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent" />
+                    <div className="absolute bottom-0 left-0 p-4">
+                      <span className="inline-block bg-green-500 text-white text-xs font-bold px-3 py-1 rounded-full mb-1.5 uppercase tracking-wider">
+                        Pre-Primary 2
+                      </span>
+                      <p className="text-white text-xs font-medium leading-snug drop-shadow">
+                        A vibrant, print-rich environment built for growing learners.
+                      </p>
+                    </div>
+                    <div className="absolute inset-0 bg-green-400/0 group-hover:bg-green-400/10 transition-colors duration-500 pointer-events-none" />
+                  </div>
+
+                  {/* Callout card */}
+                  <div className="bg-gradient-to-br from-green-600 to-green-700 rounded-2xl p-5 flex flex-col justify-center shadow-md flex-1">
+                    <p className="text-green-100 text-xs font-bold uppercase tracking-widest mb-2">
+                      Our Pre-Primary Promise
+                    </p>
+                    <p className="text-white text-sm leading-relaxed">
+                      Small class sizes, trained caregivers and a language-rich environment —
+                      giving every child the very best start before Grade&nbsp;1.
+                    </p>
+                    <div className="mt-4 flex gap-2 flex-wrap">
+                      {['Small Classes', 'Trained Caregivers', 'Play-Based Learning'].map((tag) => (
+                        <span
+                          key={tag}
+                          className="bg-white/20 text-white text-xs font-semibold px-2.5 py-1 rounded-full border border-white/25"
+                        >
+                          {tag}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Subject cards */}
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6">
               {prePrimary.map(({ icon: Icon, label, desc }, i) => (
                 <div key={label} className="group bg-white border border-gray-100 rounded-lg p-5 shadow-sm hover:shadow-lg hover:-translate-y-1 hover:border-green-300 cursor-default"
@@ -318,16 +401,13 @@ export function Home() {
                 transition: 'opacity 0.6s ease 0.1s, transform 0.6s ease 0.1s, box-shadow 0.3s, border-color 0.3s',
               }}
             >
-              {/* Photo banner — swap src when you have the image */}
               <div className="relative h-52 overflow-hidden">
                 <img
                   src="/daycare.jpg"
                   alt="Children playing at Kabati Fly-over School Daycare"
                   className="w-full h-full object-cover object-center transition-transform duration-500 group-hover:scale-105"
                 />
-                {/* green gradient overlay so title pops */}
                 <div className="absolute inset-0 bg-gradient-to-t from-green-900/70 via-green-900/20 to-transparent" />
-                {/* Title floated over the photo */}
                 <div className="absolute bottom-0 left-0 p-5 flex items-end gap-3">
                   <div className="w-11 h-11 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center flex-shrink-0 border border-white/30">
                     <Baby className="text-white" size={22} />
@@ -338,8 +418,6 @@ export function Home() {
                   </div>
                 </div>
               </div>
-
-              {/* Body */}
               <div className="p-7">
                 <p className="text-gray-600 leading-relaxed mb-5 text-sm">
                   Our daycare programme provides a warm, safe and nurturing environment
@@ -368,7 +446,6 @@ export function Home() {
                 transition: 'opacity 0.6s ease 0.2s, transform 0.6s ease 0.2s, box-shadow 0.3s, border-color 0.3s',
               }}
             >
-              {/* Photo banner — cycles between dorm + transport photos */}
               <div className="relative h-52 overflow-hidden bg-green-900">
                 {boardingImages.map((img, idx) => (
                   <img
@@ -383,9 +460,7 @@ export function Home() {
                     }}
                   />
                 ))}
-                {/* Overlay */}
                 <div className="absolute inset-0 bg-gradient-to-t from-green-900/75 via-green-900/20 to-transparent" />
-                {/* Dot indicators */}
                 <div className="absolute top-3 right-3 flex gap-1.5 z-10">
                   {boardingImages.map((_, idx) => (
                     <button
@@ -398,7 +473,6 @@ export function Home() {
                     />
                   ))}
                 </div>
-                {/* Title floated over */}
                 <div className="absolute bottom-0 left-0 p-5 flex items-end gap-3">
                   <div className="w-11 h-11 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center flex-shrink-0 border border-white/30">
                     <Moon className="text-white" size={22} />
@@ -409,8 +483,6 @@ export function Home() {
                   </div>
                 </div>
               </div>
-
-              {/* Body */}
               <div className="p-7">
                 <p className="text-gray-600 leading-relaxed mb-5 text-sm">
                   Kabati Fly-over School offers full boarding facilities for learners
