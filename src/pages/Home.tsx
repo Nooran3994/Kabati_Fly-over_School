@@ -270,11 +270,11 @@ export function Home() {
                       Our Pre-Primary Promise
                     </p>
                     <p className="text-white text-sm leading-relaxed">
-                      Small class sizes, trained caregivers and a language-rich environment —
+                      Trained caregivers and a language-rich environment —
                       giving every child the very best start before Grade&nbsp;1.
                     </p>
                     <div className="mt-4 flex gap-2 flex-wrap">
-                      {['Small Classes', 'Trained Caregivers', 'Play-Based Learning'].map((tag) => (
+                      {['Trained Caregivers', 'Play-Based Learning'].map((tag) => (
                         <span
                           key={tag}
                           className="bg-white/20 text-white text-xs font-semibold px-2.5 py-1 rounded-full border border-white/25"
