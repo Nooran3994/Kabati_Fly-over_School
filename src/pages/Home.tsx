@@ -42,11 +42,10 @@ export function Home() {
     { icon: Calculator, label: 'Mathematics', desc: 'Advanced problem-solving, algebra, geometry and financial mathematics.' },
     { icon: Microscope, label: 'Integrated Science', desc: 'Biology, chemistry, physics and environmental science as one integrated subject.' },
     { icon: Globe, label: 'Social Studies', desc: 'Global governance, civic education, geography and history.' },
-    { icon: Heart, label: 'Health Education', desc: 'Physical health, mental wellbeing and life skills for adolescents.' },
     { icon: Briefcase, label: 'Pre-Technical & Pre-Career Education', desc: 'Practical technical skills and introduction to career pathways.' },
     { icon: Palette, label: 'Creative Arts & Sports', desc: 'Music, art, drama, physical education and sports science.' },
     { icon: Heart, label: 'Religious Education', desc: 'Ethical debates, community values and character development.' },
-    { icon: Sprout, label: 'Agriculture & Business Studies', desc: 'Entrepreneurship, agribusiness basics and financial literacy.' },
+    { icon: Sprout, label: 'Agriculture', desc: 'Practical farming skills, agribusiness basics and environmental stewardship.' },
   ];
 
   return (
