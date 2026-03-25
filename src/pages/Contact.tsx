@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Mail, Phone, Clock, Facebook, Twitter, Instagram, CheckCircle, AlertCircle } from 'lucide-react';
+import { Mail, Phone, Clock, Facebook, Twitter, Instagram, CheckCircle, AlertCircle, MailOpen } from 'lucide-react';
 import { useSEO } from '../hooks/useSEO';
 
 // ─────────────────────────────────────────────────────────────
@@ -148,6 +148,19 @@ export function Contact() {
                     >
                       kabatiflyoverschool@gmail.com
                     </a>
+                  </div>
+                </div>
+
+                <div className="flex items-start space-x-4">
+                  <div className="w-11 h-11 bg-green-100 rounded-full flex items-center justify-center flex-shrink-0">
+                    <MailOpen className="text-green-600" size={20} />
+                  </div>
+                  <div>
+                    <h3 className="text-base font-semibold text-gray-800 mb-0.5">
+                      Postal Address
+                    </h3>
+                    <p className="text-gray-600 text-sm">P.O. Box 195</p>
+                    <p className="text-gray-600 text-sm">Kenol, Kenya</p>
                   </div>
                 </div>
 
