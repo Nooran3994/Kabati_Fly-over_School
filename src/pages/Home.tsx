@@ -29,6 +29,19 @@ export function Home() {
   const prev = () => setCurrent((c) => (c - 1 + heroSlides.length) % heroSlides.length);
   const next = () => setCurrent((c) => (c + 1) % heroSlides.length);
 
+  // Boarding card mini-slideshow — cycles every 3.5 s
+  const boardingImages = [
+    { src: '/boarding-dorm.jpg',      alt: 'Boarding dormitory at Kabati Fly-over School' },
+    { src: '/boarding-transport.jpg', alt: 'School buses at Kabati Fly-over School'        },
+  ];
+  const [boardingSlide, setBoardingSlide] = useState(0);
+  useEffect(() => {
+    const t = setInterval(() => {
+      setBoardingSlide((p) => (p + 1) % boardingImages.length);
+    }, 3500);
+    return () => clearInterval(t);
+  }, []);
+
   // Repeating scroll-triggered animation refs
   const sectionTitle  = useInViewRepeat(0.2);
   const prePrimaryRef = useInViewRepeat(0.1);
@@ -355,17 +368,36 @@ export function Home() {
                 transition: 'opacity 0.6s ease 0.2s, transform 0.6s ease 0.2s, box-shadow 0.3s, border-color 0.3s',
               }}
             >
-              {/* Photo banner — replace /boarding.jpg when you have the image */}
-              <div className="relative h-52 overflow-hidden bg-green-800">
-                <img
-                  src="/boarding.jpg"
-                  alt="Boarding facilities at Kabati Fly-over School"
-                  className="w-full h-full object-cover object-center transition-transform duration-500 group-hover:scale-105"
-                  onError={(e) => { e.currentTarget.style.display = 'none'; }}
-                />
-                {/* Fallback gradient shown when no image yet */}
-                <div className="absolute inset-0 bg-gradient-to-br from-green-700 to-green-900" />
-                <div className="absolute inset-0 bg-gradient-to-t from-green-900/70 via-transparent to-transparent" />
+              {/* Photo banner — cycles between dorm + transport photos */}
+              <div className="relative h-52 overflow-hidden bg-green-900">
+                {boardingImages.map((img, idx) => (
+                  <img
+                    key={img.src}
+                    src={img.src}
+                    alt={img.alt}
+                    className="absolute inset-0 w-full h-full object-cover object-center transition-opacity duration-1000 group-hover:scale-105"
+                    style={{
+                      opacity: idx === boardingSlide ? 1 : 0,
+                      transform: 'scale(1)',
+                      transition: 'opacity 1s ease, transform 0.5s ease',
+                    }}
+                  />
+                ))}
+                {/* Overlay */}
+                <div className="absolute inset-0 bg-gradient-to-t from-green-900/75 via-green-900/20 to-transparent" />
+                {/* Dot indicators */}
+                <div className="absolute top-3 right-3 flex gap-1.5 z-10">
+                  {boardingImages.map((_, idx) => (
+                    <button
+                      key={idx}
+                      onClick={() => setBoardingSlide(idx)}
+                      aria-label={`Show boarding image ${idx + 1}`}
+                      className={`rounded-full transition-all duration-300 ${
+                        idx === boardingSlide ? 'w-5 h-2 bg-white' : 'w-2 h-2 bg-white/50 hover:bg-white/80'
+                      }`}
+                    />
+                  ))}
+                </div>
                 {/* Title floated over */}
                 <div className="absolute bottom-0 left-0 p-5 flex items-end gap-3">
                   <div className="w-11 h-11 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center flex-shrink-0 border border-white/30">
