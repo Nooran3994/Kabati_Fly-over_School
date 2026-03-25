@@ -101,7 +101,7 @@ export function Home() {
               className="w-full h-full object-cover object-center"
             />
             {/* Green overlay */}
-            <div className="absolute inset-0 bg-gradient-to-r from-green-900/75 to-green-700/50"></div>
+            <div className="absolute inset-0 bg-gradient-to-r from-green-900/40 to-green-700/20"></div>
           </div>
         ))}
 
