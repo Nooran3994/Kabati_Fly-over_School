@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { Mail, Phone, Clock, Facebook, Twitter, Instagram, CheckCircle, AlertCircle } from 'lucide-react';
+import { useSEO } from '../hooks/useSEO';
 
 // ─────────────────────────────────────────────────────────────
 // SETUP: Replace YOUR_FORMSPREE_ID with your actual Formspree ID
@@ -13,6 +14,12 @@ const FORMSPREE_ID = 'YOUR_FORMSPREE_ID';
 type Status = 'idle' | 'sending' | 'success' | 'error';
 
 export function Contact() {
+  useSEO({
+    title: "Contact Us | Kabati Fly-over School — +254 708 192 030",
+    description: "Contact Kabati Fly-over School in Kenol, Kenya. Call +254 708 192 030 or email kabatiflyoverschool@gmail.com. Office hours: Mon–Fri 7:30 AM – 4:30 PM, Sat 8:00 AM – 12:00 PM.",
+    canonical: 'https://kabatiflyoverschool.com/#contact',
+  });
+
   const [status, setStatus] = useState<Status>('idle');
   const [form, setForm] = useState({
     name: '',
@@ -67,9 +74,7 @@ export function Contact() {
           backgroundPosition: 'center',
         }}
       >
-        {/* Overlay — keeps text readable over any image */}
         <div className="absolute inset-0 bg-gradient-to-r from-green-800/80 to-green-600/65"></div>
-
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h1 className="text-4xl md:text-5xl font-bold mb-4 drop-shadow-lg">
             Contact Us
@@ -207,10 +212,7 @@ export function Contact() {
 
               <div className="space-y-4">
                 <div>
-                  <label
-                    htmlFor="name"
-                    className="block text-sm font-medium text-gray-700 mb-1"
-                  >
+                  <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">
                     Full Name <span className="text-red-500">*</span>
                   </label>
                   <input
@@ -226,10 +228,7 @@ export function Contact() {
                 </div>
 
                 <div>
-                  <label
-                    htmlFor="email"
-                    className="block text-sm font-medium text-gray-700 mb-1"
-                  >
+                  <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
                     Email Address <span className="text-red-500">*</span>
                   </label>
                   <input
@@ -245,10 +244,7 @@ export function Contact() {
                 </div>
 
                 <div>
-                  <label
-                    htmlFor="phone"
-                    className="block text-sm font-medium text-gray-700 mb-1"
-                  >
+                  <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-1">
                     Phone Number
                   </label>
                   <input
@@ -263,10 +259,7 @@ export function Contact() {
                 </div>
 
                 <div>
-                  <label
-                    htmlFor="subject"
-                    className="block text-sm font-medium text-gray-700 mb-1"
-                  >
+                  <label htmlFor="subject" className="block text-sm font-medium text-gray-700 mb-1">
                     Subject <span className="text-red-500">*</span>
                   </label>
                   <input
@@ -282,10 +275,7 @@ export function Contact() {
                 </div>
 
                 <div>
-                  <label
-                    htmlFor="message"
-                    className="block text-sm font-medium text-gray-700 mb-1"
-                  >
+                  <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-1">
                     Message <span className="text-red-500">*</span>
                   </label>
                   <textarea

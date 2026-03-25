@@ -1,0 +1,8 @@
+# robots.txt — Kabati Fly-over School
+# https://kabatiflyoverschool.com
+
+User-agent: *
+Allow: /
+
+# Point crawlers to the sitemap
+Sitemap: https://kabatiflyoverschool.com/sitemap.xml

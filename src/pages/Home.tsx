@@ -1,6 +1,12 @@
 import { BookOpen, Users, Award, GraduationCap, FlaskConical, Globe, Palette, Sprout, Calculator, Languages, Baby, Microscope, Briefcase, Heart } from 'lucide-react';
+import { useSEO } from '../hooks/useSEO';
 
 export function Home() {
+  useSEO({
+    title: 'Kabati Fly-over School | Shining to the Top — Kenol, Kenya',
+    description: "Welcome to Kabati Fly-over School in Kenol, Murang'a County, Kenya. Quality CBC education from Pre-Primary to Junior School. Unlocking your child's potential to the fullest. Call +254 708 192 030.",
+    canonical: 'https://kabatiflyoverschool.com/',
+  });
 
   const prePrimary = [
     { icon: Languages, label: 'Language Activities', desc: 'Early communication, listening and speaking skills in English and Kiswahili.' },
@@ -54,9 +60,7 @@ export function Home() {
           backgroundPosition: 'center 30%',
         }}
       >
-        {/* Overlay — green gradient keeps text readable */}
         <div className="absolute inset-0 bg-gradient-to-r from-green-900/80 to-green-700/60"></div>
-
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             <h1 className="text-4xl md:text-5xl font-bold mb-6 drop-shadow-lg">
