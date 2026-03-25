@@ -1,5 +1,6 @@
 import { BookOpen, Users, Award, GraduationCap, FlaskConical, Globe, Palette, Sprout, Calculator, Languages, Baby, Microscope, Briefcase, Heart, Moon, Bus, ChevronLeft, ChevronRight } from 'lucide-react';
 import { useSEO } from '../hooks/useSEO';
+import { useInView } from '../hooks/useInView';
 import { useState, useEffect } from 'react';
 
 const heroSlides = [
@@ -40,6 +41,13 @@ export function Home() {
 
   const prev = () => setCurrent((c) => (c - 1 + heroSlides.length) % heroSlides.length);
   const next = () => setCurrent((c) => (c + 1) % heroSlides.length);
+
+  // Scroll-triggered animation refs
+  const sectionTitle  = useInView(0.2);
+  const prePrimaryRef = useInView(0.1);
+  const lowerRef      = useInView(0.1);
+  const upperRef      = useInView(0.1);
+  const juniorRef     = useInView(0.1);
 
   const prePrimary = [
     { icon: Languages, label: 'Language Activities', desc: 'Early communication, listening and speaking skills in English and Kiswahili.' },
@@ -166,44 +174,44 @@ export function Home() {
       <section className="py-16 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            <div className="bg-white p-6 rounded-lg shadow-md text-center hover:shadow-xl transition-shadow">
-              <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                <BookOpen className="text-green-600" size={32} />
+            <div className="group bg-white p-6 rounded-lg shadow-md text-center hover:shadow-xl hover:-translate-y-2 hover:border-green-400 border border-transparent transition-all duration-300 cursor-default">
+              <div className="w-16 h-16 bg-green-100 group-hover:bg-green-500 rounded-full flex items-center justify-center mx-auto mb-4 transition-colors duration-300">
+                <BookOpen className="text-green-600 group-hover:text-white transition-colors duration-300" size={32} />
               </div>
-              <h3 className="text-xl font-semibold mb-2 text-gray-800">Quality Education</h3>
+              <h3 className="text-xl font-semibold mb-2 text-gray-800 group-hover:text-green-700 transition-colors duration-300">Quality Education</h3>
               <p className="text-gray-600">
                 Competency Based Curriculum (CBC) designed to foster academic excellence
                 and critical thinking skills.
               </p>
             </div>
 
-            <div className="bg-white p-6 rounded-lg shadow-md text-center hover:shadow-xl transition-shadow">
-              <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                <Users className="text-green-600" size={32} />
+            <div className="group bg-white p-6 rounded-lg shadow-md text-center hover:shadow-xl hover:-translate-y-2 hover:border-green-400 border border-transparent transition-all duration-300 cursor-default">
+              <div className="w-16 h-16 bg-green-100 group-hover:bg-green-500 rounded-full flex items-center justify-center mx-auto mb-4 transition-colors duration-300">
+                <Users className="text-green-600 group-hover:text-white transition-colors duration-300" size={32} />
               </div>
-              <h3 className="text-xl font-semibold mb-2 text-gray-800">Dedicated Staff</h3>
+              <h3 className="text-xl font-semibold mb-2 text-gray-800 group-hover:text-green-700 transition-colors duration-300">Dedicated Staff</h3>
               <p className="text-gray-600">
                 Experienced and passionate teachers committed to nurturing every child's
                 potential.
               </p>
             </div>
 
-            <div className="bg-white p-6 rounded-lg shadow-md text-center hover:shadow-xl transition-shadow">
-              <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                <Award className="text-green-600" size={32} />
+            <div className="group bg-white p-6 rounded-lg shadow-md text-center hover:shadow-xl hover:-translate-y-2 hover:border-green-400 border border-transparent transition-all duration-300 cursor-default">
+              <div className="w-16 h-16 bg-green-100 group-hover:bg-green-500 rounded-full flex items-center justify-center mx-auto mb-4 transition-colors duration-300">
+                <Award className="text-green-600 group-hover:text-white transition-colors duration-300" size={32} />
               </div>
-              <h3 className="text-xl font-semibold mb-2 text-gray-800">Proven Excellence</h3>
+              <h3 className="text-xl font-semibold mb-2 text-gray-800 group-hover:text-green-700 transition-colors duration-300">Proven Excellence</h3>
               <p className="text-gray-600">
                 Recognized for outstanding performance in academics, sports, and
                 co-curricular activities.
               </p>
             </div>
 
-            <div className="bg-white p-6 rounded-lg shadow-md text-center hover:shadow-xl transition-shadow">
-              <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                <GraduationCap className="text-green-600" size={32} />
+            <div className="group bg-white p-6 rounded-lg shadow-md text-center hover:shadow-xl hover:-translate-y-2 hover:border-green-400 border border-transparent transition-all duration-300 cursor-default">
+              <div className="w-16 h-16 bg-green-100 group-hover:bg-green-500 rounded-full flex items-center justify-center mx-auto mb-4 transition-colors duration-300">
+                <GraduationCap className="text-green-600 group-hover:text-white transition-colors duration-300" size={32} />
               </div>
-              <h3 className="text-xl font-semibold mb-2 text-gray-800">Holistic Development</h3>
+              <h3 className="text-xl font-semibold mb-2 text-gray-800 group-hover:text-green-700 transition-colors duration-300">Holistic Development</h3>
               <p className="text-gray-600">
                 Building character, values, and life skills alongside academic knowledge.
               </p>
@@ -215,7 +223,16 @@ export function Home() {
       {/* ── CBC Curriculum Offerings ── */}
       <section className="py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
+
+          {/* Animated section heading */}
+          <div
+            ref={sectionTitle.ref}
+            className="text-center mb-12 transition-all duration-700"
+            style={{
+              opacity: sectionTitle.inView ? 1 : 0,
+              transform: sectionTitle.inView ? 'translateY(0)' : 'translateY(32px)',
+            }}
+          >
             <h2 className="text-3xl font-bold text-gray-800 mb-3">What We Offer</h2>
             <p className="text-gray-600 max-w-2xl mx-auto">
               We are committed to providing quality education, strong discipline and a
@@ -225,20 +242,34 @@ export function Home() {
           </div>
 
           {/* Pre-Primary */}
-          <div className="mb-12">
-            <div className="flex items-center mb-6">
+          <div className="mb-12" ref={prePrimaryRef.ref}>
+            <div
+              className="flex items-center mb-6 transition-all duration-500"
+              style={{
+                opacity: prePrimaryRef.inView ? 1 : 0,
+                transform: prePrimaryRef.inView ? 'translateX(0)' : 'translateX(-40px)',
+              }}
+            >
               <div className="bg-green-400 text-white px-5 py-1.5 rounded-full font-semibold text-sm whitespace-nowrap">
                 Pre-Primary — PP1 &amp; PP2
               </div>
               <div className="flex-1 h-0.5 bg-gray-200 ml-4"></div>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6">
-              {prePrimary.map(({ icon: Icon, label, desc }) => (
-                <div key={label} className="bg-white border border-gray-100 rounded-lg p-5 shadow-sm hover:shadow-md transition-shadow">
-                  <div className="w-10 h-10 bg-green-100 rounded-full flex items-center justify-center mb-3">
-                    <Icon className="text-green-600" size={20} />
+              {prePrimary.map(({ icon: Icon, label, desc }, i) => (
+                <div
+                  key={label}
+                  className="group bg-white border border-gray-100 rounded-lg p-5 shadow-sm hover:shadow-lg hover:-translate-y-1 hover:border-green-300 transition-all duration-300 cursor-default"
+                  style={{
+                    opacity: prePrimaryRef.inView ? 1 : 0,
+                    transform: prePrimaryRef.inView ? 'translateY(0)' : 'translateY(40px)',
+                    transition: `opacity 0.5s ease ${i * 80}ms, transform 0.5s ease ${i * 80}ms, box-shadow 0.3s, border-color 0.3s`,
+                  }}
+                >
+                  <div className="w-10 h-10 bg-green-100 group-hover:bg-green-500 rounded-full flex items-center justify-center mb-3 transition-colors duration-300">
+                    <Icon className="text-green-600 group-hover:text-white transition-colors duration-300" size={20} />
                   </div>
-                  <h4 className="font-semibold text-gray-800 mb-1 text-sm">{label}</h4>
+                  <h4 className="font-semibold text-gray-800 mb-1 text-sm group-hover:text-green-700 transition-colors">{label}</h4>
                   <p className="text-xs text-gray-600 leading-relaxed">{desc}</p>
                 </div>
               ))}
@@ -246,20 +277,34 @@ export function Home() {
           </div>
 
           {/* Lower Primary */}
-          <div className="mb-12">
-            <div className="flex items-center mb-6">
+          <div className="mb-12" ref={lowerRef.ref}>
+            <div
+              className="flex items-center mb-6 transition-all duration-500"
+              style={{
+                opacity: lowerRef.inView ? 1 : 0,
+                transform: lowerRef.inView ? 'translateX(0)' : 'translateX(-40px)',
+              }}
+            >
               <div className="bg-green-500 text-white px-5 py-1.5 rounded-full font-semibold text-sm whitespace-nowrap">
                 Lower Primary — Grade 1 to 3
               </div>
               <div className="flex-1 h-0.5 bg-gray-200 ml-4"></div>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-              {lowerPrimary.map(({ icon: Icon, label, desc }) => (
-                <div key={label} className="bg-white border border-gray-100 rounded-lg p-5 shadow-sm hover:shadow-md transition-shadow">
-                  <div className="w-10 h-10 bg-green-100 rounded-full flex items-center justify-center mb-3">
-                    <Icon className="text-green-600" size={20} />
+              {lowerPrimary.map(({ icon: Icon, label, desc }, i) => (
+                <div
+                  key={label}
+                  className="group bg-white border border-gray-100 rounded-lg p-5 shadow-sm hover:shadow-lg hover:-translate-y-1 hover:border-green-300 transition-all duration-300 cursor-default"
+                  style={{
+                    opacity: lowerRef.inView ? 1 : 0,
+                    transform: lowerRef.inView ? 'translateY(0)' : 'translateY(40px)',
+                    transition: `opacity 0.5s ease ${i * 80}ms, transform 0.5s ease ${i * 80}ms, box-shadow 0.3s, border-color 0.3s`,
+                  }}
+                >
+                  <div className="w-10 h-10 bg-green-100 group-hover:bg-green-500 rounded-full flex items-center justify-center mb-3 transition-colors duration-300">
+                    <Icon className="text-green-600 group-hover:text-white transition-colors duration-300" size={20} />
                   </div>
-                  <h4 className="font-semibold text-gray-800 mb-1 text-sm">{label}</h4>
+                  <h4 className="font-semibold text-gray-800 mb-1 text-sm group-hover:text-green-700 transition-colors">{label}</h4>
                   <p className="text-xs text-gray-600 leading-relaxed">{desc}</p>
                 </div>
               ))}
@@ -267,20 +312,34 @@ export function Home() {
           </div>
 
           {/* Upper Primary */}
-          <div className="mb-12">
-            <div className="flex items-center mb-6">
+          <div className="mb-12" ref={upperRef.ref}>
+            <div
+              className="flex items-center mb-6 transition-all duration-500"
+              style={{
+                opacity: upperRef.inView ? 1 : 0,
+                transform: upperRef.inView ? 'translateX(0)' : 'translateX(-40px)',
+              }}
+            >
               <div className="bg-green-600 text-white px-5 py-1.5 rounded-full font-semibold text-sm whitespace-nowrap">
                 Upper Primary — Grade 4 to 6
               </div>
               <div className="flex-1 h-0.5 bg-gray-200 ml-4"></div>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-              {upperPrimary.map(({ icon: Icon, label, desc }) => (
-                <div key={label} className="bg-white border border-gray-100 rounded-lg p-5 shadow-sm hover:shadow-md transition-shadow">
-                  <div className="w-10 h-10 bg-green-100 rounded-full flex items-center justify-center mb-3">
-                    <Icon className="text-green-600" size={20} />
+              {upperPrimary.map(({ icon: Icon, label, desc }, i) => (
+                <div
+                  key={label}
+                  className="group bg-white border border-gray-100 rounded-lg p-5 shadow-sm hover:shadow-lg hover:-translate-y-1 hover:border-green-300 transition-all duration-300 cursor-default"
+                  style={{
+                    opacity: upperRef.inView ? 1 : 0,
+                    transform: upperRef.inView ? 'translateY(0)' : 'translateY(40px)',
+                    transition: `opacity 0.5s ease ${i * 80}ms, transform 0.5s ease ${i * 80}ms, box-shadow 0.3s, border-color 0.3s`,
+                  }}
+                >
+                  <div className="w-10 h-10 bg-green-100 group-hover:bg-green-500 rounded-full flex items-center justify-center mb-3 transition-colors duration-300">
+                    <Icon className="text-green-600 group-hover:text-white transition-colors duration-300" size={20} />
                   </div>
-                  <h4 className="font-semibold text-gray-800 mb-1 text-sm">{label}</h4>
+                  <h4 className="font-semibold text-gray-800 mb-1 text-sm group-hover:text-green-700 transition-colors">{label}</h4>
                   <p className="text-xs text-gray-600 leading-relaxed">{desc}</p>
                 </div>
               ))}
@@ -288,25 +347,40 @@ export function Home() {
           </div>
 
           {/* Junior School */}
-          <div>
-            <div className="flex items-center mb-6">
+          <div ref={juniorRef.ref}>
+            <div
+              className="flex items-center mb-6 transition-all duration-500"
+              style={{
+                opacity: juniorRef.inView ? 1 : 0,
+                transform: juniorRef.inView ? 'translateX(0)' : 'translateX(-40px)',
+              }}
+            >
               <div className="bg-green-700 text-white px-5 py-1.5 rounded-full font-semibold text-sm whitespace-nowrap">
                 Junior School — Grade 7 to 9
               </div>
               <div className="flex-1 h-0.5 bg-gray-200 ml-4"></div>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {juniorSchool.map(({ icon: Icon, label, desc }) => (
-                <div key={label} className="bg-white border border-gray-100 rounded-lg p-5 shadow-sm hover:shadow-md transition-shadow">
-                  <div className="w-10 h-10 bg-green-100 rounded-full flex items-center justify-center mb-3">
-                    <Icon className="text-green-600" size={20} />
+              {juniorSchool.map(({ icon: Icon, label, desc }, i) => (
+                <div
+                  key={label}
+                  className="group bg-white border border-gray-100 rounded-lg p-5 shadow-sm hover:shadow-lg hover:-translate-y-1 hover:border-green-300 transition-all duration-300 cursor-default"
+                  style={{
+                    opacity: juniorRef.inView ? 1 : 0,
+                    transform: juniorRef.inView ? 'translateY(0)' : 'translateY(40px)',
+                    transition: `opacity 0.5s ease ${i * 80}ms, transform 0.5s ease ${i * 80}ms, box-shadow 0.3s, border-color 0.3s`,
+                  }}
+                >
+                  <div className="w-10 h-10 bg-green-100 group-hover:bg-green-500 rounded-full flex items-center justify-center mb-3 transition-colors duration-300">
+                    <Icon className="text-green-600 group-hover:text-white transition-colors duration-300" size={20} />
                   </div>
-                  <h4 className="font-semibold text-gray-800 mb-1 text-sm">{label}</h4>
+                  <h4 className="font-semibold text-gray-800 mb-1 text-sm group-hover:text-green-700 transition-colors">{label}</h4>
                   <p className="text-xs text-gray-600 leading-relaxed">{desc}</p>
                 </div>
               ))}
             </div>
           </div>
+
         </div>
       </section>
 
