@@ -1,5 +1,25 @@
-import { BookOpen, Users, Award, GraduationCap, FlaskConical, Globe, Palette, Sprout, Calculator, Languages, Baby, Microscope, Briefcase, Heart } from 'lucide-react';
+import { BookOpen, Users, Award, GraduationCap, FlaskConical, Globe, Palette, Sprout, Calculator, Languages, Baby, Microscope, Briefcase, Heart, Moon, Bus, ChevronLeft, ChevronRight } from 'lucide-react';
 import { useSEO } from '../hooks/useSEO';
+import { useState, useEffect } from 'react';
+
+const heroSlides = [
+  {
+    image: '/hero-classroom.jpg',
+    label: 'Active Learning',
+  },
+  {
+    image: '/hero-computers.jpg',
+    label: 'Computer Studies',
+  },
+  {
+    image: '/hero-assembly.jpg',
+    label: 'Our Campus',
+  },
+  {
+    image: '/hero-science.jpg',
+    label: 'Science & Discovery',
+  },
+];
 
 export function Home() {
   useSEO({
@@ -7,6 +27,19 @@ export function Home() {
     description: "Welcome to Kabati Fly-over School in Kenol, Murang'a County, Kenya. Quality CBC education from Pre-Primary to Junior School. Unlocking your child's potential to the fullest. Call +254 708 192 030.",
     canonical: 'https://kabatiflyoverschool.com/',
   });
+
+  const [current, setCurrent] = useState(0);
+
+  // Auto-advance every 5 seconds
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrent((prev) => (prev + 1) % heroSlides.length);
+    }, 5000);
+    return () => clearInterval(timer);
+  }, []);
+
+  const prev = () => setCurrent((c) => (c - 1 + heroSlides.length) % heroSlides.length);
+  const next = () => setCurrent((c) => (c + 1) % heroSlides.length);
 
   const prePrimary = [
     { icon: Languages, label: 'Language Activities', desc: 'Early communication, listening and speaking skills in English and Kiswahili.' },
@@ -50,26 +83,82 @@ export function Home() {
 
   return (
     <div>
-      {/* ── Hero with background image ── */}
+      {/* ── Hero Slideshow ── */}
       <section
-        className="relative text-white py-28"
-        style={{
-          backgroundImage: 'url(/home-hero.png)',
-          backgroundSize: 'cover',
-          backgroundPosition: 'center 30%',
-        }}
+        className="relative text-white overflow-hidden"
+        style={{ minHeight: '85vh' }}
       >
-        <div className="absolute inset-0 bg-gradient-to-r from-green-900/80 to-green-700/60"></div>
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center">
-            <h1 className="text-4xl md:text-5xl font-bold mb-6 drop-shadow-lg">
-              Welcome to Kabati Fly-over School
-            </h1>
-            <p className="text-lg md:text-xl max-w-3xl mx-auto leading-relaxed drop-shadow text-green-50">
-              Unlocking your child's potential to the fullest through quality education,
-              strong discipline and a supportive learning environment.
-            </p>
+        {/* Slides */}
+        {heroSlides.map((slide, index) => (
+          <div
+            key={slide.image}
+            className="absolute inset-0 transition-opacity duration-1000"
+            style={{ opacity: index === current ? 1 : 0 }}
+          >
+            <img
+              src={slide.image}
+              alt={slide.label}
+              className="w-full h-full object-cover object-center"
+            />
+            {/* Green overlay */}
+            <div className="absolute inset-0 bg-gradient-to-r from-green-900/75 to-green-700/50"></div>
           </div>
+        ))}
+
+        {/* Content */}
+        <div className="relative z-10 flex flex-col items-center justify-center text-center h-full px-4 sm:px-6 lg:px-8" style={{ minHeight: '85vh' }}>
+          <h1 className="text-4xl md:text-6xl font-bold mb-6 drop-shadow-lg max-w-4xl leading-tight">
+            Welcome to Kabati Fly-over School
+          </h1>
+          <p className="text-lg md:text-xl max-w-3xl mx-auto leading-relaxed drop-shadow text-green-50 mb-8">
+            Unlocking your child's potential to the fullest through quality education,
+            strong discipline and a supportive learning environment.
+          </p>
+          <a
+            href="tel:+254708192030"
+            className="bg-green-500 hover:bg-green-400 text-white font-semibold px-8 py-3 rounded-lg shadow-lg transition-colors text-lg"
+          >
+            Enrol Today
+          </a>
+        </div>
+
+        {/* Prev / Next arrows */}
+        <button
+          onClick={prev}
+          aria-label="Previous slide"
+          className="absolute left-4 top-1/2 -translate-y-1/2 z-20 w-11 h-11 bg-black/30 hover:bg-black/50 rounded-full flex items-center justify-center transition-colors"
+        >
+          <ChevronLeft size={24} className="text-white" />
+        </button>
+        <button
+          onClick={next}
+          aria-label="Next slide"
+          className="absolute right-4 top-1/2 -translate-y-1/2 z-20 w-11 h-11 bg-black/30 hover:bg-black/50 rounded-full flex items-center justify-center transition-colors"
+        >
+          <ChevronRight size={24} className="text-white" />
+        </button>
+
+        {/* Dot indicators */}
+        <div className="absolute bottom-6 left-1/2 -translate-x-1/2 z-20 flex gap-2">
+          {heroSlides.map((_, index) => (
+            <button
+              key={index}
+              onClick={() => setCurrent(index)}
+              aria-label={`Go to slide ${index + 1}`}
+              className={`rounded-full transition-all duration-300 ${
+                index === current
+                  ? 'w-8 h-3 bg-white'
+                  : 'w-3 h-3 bg-white/50 hover:bg-white/80'
+              }`}
+            />
+          ))}
+        </div>
+
+        {/* Slide label badge */}
+        <div className="absolute bottom-6 right-6 z-20">
+          <span className="bg-black/30 text-white text-xs font-medium px-3 py-1.5 rounded-full backdrop-blur-sm">
+            {heroSlides[current].label}
+          </span>
         </div>
       </section>
 
@@ -217,6 +306,123 @@ export function Home() {
                 </div>
               ))}
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── Daycare & Boarding ── */}
+      <section className="py-16 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold text-gray-800 mb-3">Beyond the Classroom</h2>
+            <p className="text-gray-600 max-w-2xl mx-auto">
+              We go beyond academics to ensure every child is safe, cared for and supported
+              from the earliest years through to their senior school life.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+
+            {/* Daycare */}
+            <div className="group relative bg-white rounded-2xl shadow-md border border-gray-100 overflow-hidden
+              transition-all duration-300 hover:shadow-xl hover:-translate-y-1 hover:border-green-300">
+              {/* Top accent bar */}
+              <div className="h-2 bg-gradient-to-r from-green-400 to-green-600"></div>
+              <div className="p-8">
+                <div className="flex items-center gap-4 mb-5">
+                  <div className="w-14 h-14 bg-green-100 group-hover:bg-green-500 rounded-full flex items-center justify-center flex-shrink-0 transition-colors duration-300">
+                    <Baby className="text-green-600 group-hover:text-white transition-colors duration-300" size={28} />
+                  </div>
+                  <div>
+                    <h3 className="text-2xl font-bold text-gray-800 group-hover:text-green-700 transition-colors">
+                      Daycare
+                    </h3>
+                    <p className="text-sm text-green-600 font-medium">For our youngest learners</p>
+                  </div>
+                </div>
+                <p className="text-gray-600 leading-relaxed mb-5">
+                  Our daycare programme provides a warm, safe and nurturing environment
+                  for young children before they join Pre-Primary. Under the care of
+                  trained and compassionate staff, children are engaged through play,
+                  storytelling and early learning activities that build a strong
+                  foundation for formal schooling.
+                </p>
+                <ul className="space-y-2">
+                  {[
+                    'Supervised by trained, caring staff',
+                    'Safe and stimulating environment',
+                    'Play-based early learning activities',
+                    'Smooth transition into PP1',
+                  ].map((point) => (
+                    <li key={point} className="flex items-center gap-2 text-sm text-gray-600">
+                      <span className="w-2 h-2 bg-green-500 rounded-full flex-shrink-0"></span>
+                      {point}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+
+            {/* Boarding */}
+            <div className="group relative bg-white rounded-2xl shadow-md border border-gray-100 overflow-hidden
+              transition-all duration-300 hover:shadow-xl hover:-translate-y-1 hover:border-green-300">
+              {/* Top accent bar */}
+              <div className="h-2 bg-gradient-to-r from-green-600 to-green-800"></div>
+              <div className="p-8">
+                <div className="flex items-center gap-4 mb-5">
+                  <div className="w-14 h-14 bg-green-100 group-hover:bg-green-500 rounded-full flex items-center justify-center flex-shrink-0 transition-colors duration-300">
+                    <Moon className="text-green-600 group-hover:text-white transition-colors duration-300" size={28} />
+                  </div>
+                  <div>
+                    <h3 className="text-2xl font-bold text-gray-800 group-hover:text-green-700 transition-colors">
+                      Boarding
+                    </h3>
+                    <p className="text-sm text-green-600 font-medium">Full residential accommodation</p>
+                  </div>
+                </div>
+                <p className="text-gray-600 leading-relaxed mb-5">
+                  Kabati Fly-over School offers full boarding facilities for learners
+                  who require residential accommodation. Students live in a structured,
+                  disciplined and supportive environment that promotes focus, routine
+                  and peer camaraderie — ensuring they get the most out of their
+                  education away from home.
+                </p>
+                <ul className="space-y-2">
+                  {[
+                    'Comfortable and secure residential facilities',
+                    'Structured daily routine and supervision',
+                    'Nutritious meals provided daily',
+                    'Evening prep and study sessions',
+                  ].map((point) => (
+                    <li key={point} className="flex items-center gap-2 text-sm text-gray-600">
+                      <span className="w-2 h-2 bg-green-500 rounded-full flex-shrink-0"></span>
+                      {point}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+
+          </div>
+
+          {/* Transport callout */}
+          <div className="mt-8 bg-green-600 rounded-2xl p-6 flex flex-col sm:flex-row items-center gap-4 text-white shadow-lg">
+            <div className="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center flex-shrink-0">
+              <Bus size={24} className="text-white" />
+            </div>
+            <div className="text-center sm:text-left">
+              <h4 className="font-bold text-lg">Learner Transport Available</h4>
+              <p className="text-green-100 text-sm">
+                Our school bus service covers Kabati, Kimorori Wempa ward and neighbouring areas —
+                making quality education accessible wherever you are.
+              </p>
+            </div>
+            <a
+              href="tel:+254708192030"
+              className="ml-auto flex-shrink-0 bg-white text-green-700 px-5 py-2.5 rounded-lg font-semibold text-sm hover:bg-green-50 transition-colors shadow"
+            >
+              Enquire Now
+            </a>
           </div>
         </div>
       </section>
