@@ -295,7 +295,8 @@ export function Home() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {/* Daycare */}
+
+            {/* ── Daycare ── */}
             <div
               className="group relative bg-white rounded-2xl shadow-md border border-gray-100 overflow-hidden transition-all duration-300 hover:shadow-xl hover:-translate-y-1 hover:border-green-300"
               style={{
@@ -304,18 +305,30 @@ export function Home() {
                 transition: 'opacity 0.6s ease 0.1s, transform 0.6s ease 0.1s, box-shadow 0.3s, border-color 0.3s',
               }}
             >
-              <div className="h-2 bg-gradient-to-r from-green-400 to-green-600"></div>
-              <div className="p-8">
-                <div className="flex items-center gap-4 mb-5">
-                  <div className="w-14 h-14 bg-green-100 group-hover:bg-green-500 rounded-full flex items-center justify-center flex-shrink-0 transition-colors duration-300">
-                    <Baby className="text-green-600 group-hover:text-white transition-colors duration-300" size={28} />
+              {/* Photo banner — swap src when you have the image */}
+              <div className="relative h-52 overflow-hidden">
+                <img
+                  src="/daycare.jpg"
+                  alt="Children playing at Kabati Fly-over School Daycare"
+                  className="w-full h-full object-cover object-center transition-transform duration-500 group-hover:scale-105"
+                />
+                {/* green gradient overlay so title pops */}
+                <div className="absolute inset-0 bg-gradient-to-t from-green-900/70 via-green-900/20 to-transparent" />
+                {/* Title floated over the photo */}
+                <div className="absolute bottom-0 left-0 p-5 flex items-end gap-3">
+                  <div className="w-11 h-11 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center flex-shrink-0 border border-white/30">
+                    <Baby className="text-white" size={22} />
                   </div>
                   <div>
-                    <h3 className="text-2xl font-bold text-gray-800 group-hover:text-green-700 transition-colors">Daycare</h3>
-                    <p className="text-sm text-green-600 font-medium">For our youngest learners</p>
+                    <h3 className="text-xl font-bold text-white leading-tight drop-shadow">Daycare</h3>
+                    <p className="text-green-200 text-xs font-medium">For our youngest learners</p>
                   </div>
                 </div>
-                <p className="text-gray-600 leading-relaxed mb-5">
+              </div>
+
+              {/* Body */}
+              <div className="p-7">
+                <p className="text-gray-600 leading-relaxed mb-5 text-sm">
                   Our daycare programme provides a warm, safe and nurturing environment
                   for young children before they join Pre-Primary. Under the care of
                   trained and compassionate staff, children are engaged through play,
@@ -333,7 +346,7 @@ export function Home() {
               </div>
             </div>
 
-            {/* Boarding */}
+            {/* ── Boarding ── */}
             <div
               className="group relative bg-white rounded-2xl shadow-md border border-gray-100 overflow-hidden transition-all duration-300 hover:shadow-xl hover:-translate-y-1 hover:border-green-300"
               style={{
@@ -342,18 +355,32 @@ export function Home() {
                 transition: 'opacity 0.6s ease 0.2s, transform 0.6s ease 0.2s, box-shadow 0.3s, border-color 0.3s',
               }}
             >
-              <div className="h-2 bg-gradient-to-r from-green-600 to-green-800"></div>
-              <div className="p-8">
-                <div className="flex items-center gap-4 mb-5">
-                  <div className="w-14 h-14 bg-green-100 group-hover:bg-green-500 rounded-full flex items-center justify-center flex-shrink-0 transition-colors duration-300">
-                    <Moon className="text-green-600 group-hover:text-white transition-colors duration-300" size={28} />
+              {/* Photo banner — replace /boarding.jpg when you have the image */}
+              <div className="relative h-52 overflow-hidden bg-green-800">
+                <img
+                  src="/boarding.jpg"
+                  alt="Boarding facilities at Kabati Fly-over School"
+                  className="w-full h-full object-cover object-center transition-transform duration-500 group-hover:scale-105"
+                  onError={(e) => { e.currentTarget.style.display = 'none'; }}
+                />
+                {/* Fallback gradient shown when no image yet */}
+                <div className="absolute inset-0 bg-gradient-to-br from-green-700 to-green-900" />
+                <div className="absolute inset-0 bg-gradient-to-t from-green-900/70 via-transparent to-transparent" />
+                {/* Title floated over */}
+                <div className="absolute bottom-0 left-0 p-5 flex items-end gap-3">
+                  <div className="w-11 h-11 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center flex-shrink-0 border border-white/30">
+                    <Moon className="text-white" size={22} />
                   </div>
                   <div>
-                    <h3 className="text-2xl font-bold text-gray-800 group-hover:text-green-700 transition-colors">Boarding</h3>
-                    <p className="text-sm text-green-600 font-medium">Full residential accommodation</p>
+                    <h3 className="text-xl font-bold text-white leading-tight drop-shadow">Boarding</h3>
+                    <p className="text-green-200 text-xs font-medium">Full residential accommodation</p>
                   </div>
                 </div>
-                <p className="text-gray-600 leading-relaxed mb-5">
+              </div>
+
+              {/* Body */}
+              <div className="p-7">
+                <p className="text-gray-600 leading-relaxed mb-5 text-sm">
                   Kabati Fly-over School offers full boarding facilities for learners
                   who require residential accommodation. Students live in a structured,
                   disciplined and supportive environment that promotes focus, routine
@@ -370,6 +397,7 @@ export function Home() {
                 </ul>
               </div>
             </div>
+
           </div>
 
           {/* Transport callout */}
