@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { Trophy, Building, Bus, Monitor, Music, MapPin, GraduationCap, TrendingUp, Star, Award } from 'lucide-react';
+import { useSEO } from '../hooks/useSEO';
 
 type Category = 'All' | 'Academic' | 'Infrastructure' | 'Co-Curricular' | 'Growth';
 
@@ -127,6 +128,12 @@ const stats = [
 const categories: Category[] = ['All', 'Academic', 'Infrastructure', 'Co-Curricular', 'Growth'];
 
 export function Achievements() {
+  useSEO({
+    title: "Achievements & Milestones | Kabati Fly-over School",
+    description: "18 years of academic excellence, infrastructure growth and co-curricular success at Kabati Fly-over School. From 64 learners in 2007 to 975 today in Kenol, Murang'a, Kenya.",
+    canonical: 'https://kabatiflyoverschool.com/#achievements',
+  });
+
   const [activeCategory, setActiveCategory] = useState<Category>('All');
 
   const filtered = activeCategory === 'All'
@@ -144,9 +151,7 @@ export function Achievements() {
           backgroundPosition: 'center',
         }}
       >
-        {/* Dark + green overlay so text stays readable */}
         <div className="absolute inset-0 bg-gradient-to-r from-green-800/80 to-green-600/70"></div>
-
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h1 className="text-4xl md:text-5xl font-bold mb-4 drop-shadow-lg">
             Achievements &amp; Milestones
@@ -175,7 +180,7 @@ export function Achievements() {
         </div>
       </section>
 
-      {/* Category filter — CLICKABLE */}
+      {/* Category filter */}
       <section className="py-8 bg-gray-50 border-b border-gray-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-wrap gap-3 justify-center">
@@ -211,10 +216,9 @@ export function Achievements() {
       {/* Milestone cards */}
       <section className="py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-
-          {/* Count label */}
           <p className="text-sm text-gray-400 mb-8 text-center">
-            Showing <span className="font-semibold text-gray-600">{filtered.length}</span> {activeCategory === 'All' ? 'milestones' : `"${activeCategory}" milestone${filtered.length !== 1 ? 's' : ''}`}
+            Showing <span className="font-semibold text-gray-600">{filtered.length}</span>{' '}
+            {activeCategory === 'All' ? 'milestones' : `"${activeCategory}" milestone${filtered.length !== 1 ? 's' : ''}`}
           </p>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -229,7 +233,6 @@ export function Achievements() {
                     hover:shadow-xl hover:-translate-y-1 ${c.border} cursor-default`}
                 >
                   <div className="absolute inset-0 bg-gradient-to-br from-gray-50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-
                   <div className="relative z-10">
                     <div className="flex items-center justify-between mb-4">
                       <div className={`w-12 h-12 rounded-full flex items-center justify-center transition-colors duration-300 ${c.icon}`}>
@@ -244,15 +247,12 @@ export function Achievements() {
                         </span>
                       </div>
                     </div>
-
                     <h3 className="text-lg font-bold text-gray-800 mb-3 group-hover:text-green-700 transition-colors duration-200 leading-snug">
                       {item.title}
                     </h3>
-
                     <p className="text-gray-600 text-sm leading-relaxed mb-4">
                       {item.desc}
                     </p>
-
                     <div className={`border rounded-lg px-3 py-2 text-xs font-medium flex items-start gap-2 ${c.highlight}`}>
                       <Award size={13} className="mt-0.5 flex-shrink-0" />
                       <span>{item.highlight}</span>

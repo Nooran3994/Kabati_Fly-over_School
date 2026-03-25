@@ -1,6 +1,13 @@
 import { Target, Eye, Heart, Users, BookOpen, Award, ChevronRight } from 'lucide-react';
+import { useSEO } from '../hooks/useSEO';
 
 export function About() {
+  useSEO({
+    title: "About Us | Kabati Fly-over School — Kenol, Kenya",
+    description: "Learn about Kabati Fly-over School's history, mission and vision. Founded in 2007, we now serve 975 learners in Kenol, Murang'a County with 55 dedicated staff members.",
+    canonical: 'https://kabatiflyoverschool.com/#about',
+  });
+
   const timeline = [
     {
       year: '2004',
@@ -141,7 +148,7 @@ export function About() {
         </div>
       </section>
 
-      {/* ── Mission / Vision / Values — hover animated cards ── */}
+      {/* ── Mission / Vision / Values ── */}
       <section className="py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-3xl font-bold text-center text-gray-800 mb-12">Who We Are</h2>
