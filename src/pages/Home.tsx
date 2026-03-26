@@ -42,6 +42,23 @@ export function Home() {
     return () => clearInterval(t);
   }, []);
 
+  // Junior School photo slideshow — 6 images
+  const juniorImages = [
+    { src: '/junior-school-1.jpg', alt: 'Junior School learner attentively listening in class' },
+    { src: '/junior-school-2.jpg', alt: 'Junior School class in session at Kabati Fly-over School' },
+    { src: '/junior-school-3.jpg', alt: 'Junior School learners in the science lab' },
+    { src: '/junior-school-4.jpg', alt: 'Junior School science practical experiment' },
+    { src: '/junior-school-5.jpg', alt: 'Junior School learner focused in class' },
+    { src: '/junior-school-6.jpg', alt: 'Junior School learner smiling in class' },
+  ];
+  const [juniorSlide, setJuniorSlide] = useState(0);
+  useEffect(() => {
+    const t = setInterval(() => {
+      setJuniorSlide((p) => (p + 1) % juniorImages.length);
+    }, 3500);
+    return () => clearInterval(t);
+  }, []);
+
   // Upper Primary photo slideshow
   const upperPrimaryImages = [
     { src: '/upper-primary-classroom-1.jpg', alt: 'Teacher guiding Upper Primary learners at Kabati Fly-over School' },
@@ -578,6 +595,111 @@ export function Home() {
               </div>
               <div className="flex-1 h-0.5 bg-gray-200 ml-4"></div>
             </div>
+
+            {/* ── Photo introduction ── */}
+            <div
+              className="mb-8"
+              style={{
+                opacity: juniorRef.inView ? 1 : 0,
+                transform: juniorRef.inView ? 'translateY(0)' : 'translateY(24px)',
+                transition: 'opacity 0.65s ease 0.1s, transform 0.65s ease 0.1s',
+              }}
+            >
+              <div className="grid grid-cols-1 md:grid-cols-5 gap-4" style={{ minHeight: '340px' }}>
+
+                {/* ── Large crossfading slideshow (spans 3 cols) ── */}
+                <div className="md:col-span-3 relative group overflow-hidden rounded-2xl shadow-md bg-gray-900" style={{ minHeight: '340px' }}>
+                  {juniorImages.map((img, idx) => (
+                    <img
+                      key={img.src}
+                      src={img.src}
+                      alt={img.alt}
+                      className="absolute inset-0 w-full h-full object-cover object-center transition-opacity duration-1000"
+                      style={{ opacity: idx === juniorSlide ? 1 : 0, minHeight: '340px' }}
+                    />
+                  ))}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/15 to-transparent" />
+
+                  {/* Dot indicators */}
+                  <div className="absolute top-3 right-3 flex gap-1.5 z-10 flex-wrap justify-end max-w-[100px]">
+                    {juniorImages.map((_, idx) => (
+                      <button
+                        key={idx}
+                        onClick={() => setJuniorSlide(idx)}
+                        aria-label={`Show junior school image ${idx + 1}`}
+                        className={`rounded-full transition-all duration-300 ${
+                          idx === juniorSlide ? 'w-5 h-2 bg-white' : 'w-2 h-2 bg-white/50 hover:bg-white/80'
+                        }`}
+                      />
+                    ))}
+                  </div>
+
+                  {/* Image counter */}
+                  <div className="absolute top-3 left-3 z-10">
+                    <span className="bg-black/40 backdrop-blur-sm text-white text-xs font-semibold px-2.5 py-1 rounded-full">
+                      {juniorSlide + 1} / {juniorImages.length}
+                    </span>
+                  </div>
+
+                  <div className="absolute bottom-0 left-0 p-5 z-10">
+                    <span className="inline-block bg-green-700 text-white text-xs font-bold px-3 py-1 rounded-full mb-2 uppercase tracking-wider">
+                      Grade 7 – 9
+                    </span>
+                    <p className="text-white text-sm font-medium leading-snug drop-shadow max-w-xs">
+                      Ambitious, driven and full of potential — our Junior School
+                      learners are the future in the making.
+                    </p>
+                  </div>
+                  <div className="absolute inset-0 bg-green-700/0 group-hover:bg-green-700/10 transition-colors duration-500 pointer-events-none" />
+                </div>
+
+                {/* ── Right column — callout cards ── */}
+                <div className="md:col-span-2 flex flex-col gap-4">
+
+                  {/* Feature list card */}
+                  <div className="bg-white border border-gray-100 rounded-2xl shadow-sm p-5 flex-1 flex flex-col justify-center">
+                    <p className="text-xs font-bold uppercase tracking-widest text-green-700 mb-3">
+                      What Makes It Special
+                    </p>
+                    <ul className="space-y-2">
+                      {[
+                        'Dedicated science lab for practicals',
+                        'Full CBC Junior School curriculum',
+                        'Transition support to Senior School',
+                      ].map((point) => (
+                        <li key={point} className="flex items-start gap-2 text-sm text-gray-700">
+                          <span className="w-2 h-2 bg-green-600 rounded-full flex-shrink-0 mt-1.5"></span>
+                          {point}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+
+                  {/* Callout card */}
+                  <div className="bg-gradient-to-br from-green-600 to-green-700 rounded-2xl p-5 flex flex-col justify-center shadow-md flex-1">
+                    <p className="text-green-100 text-xs font-bold uppercase tracking-widest mb-2">
+                      Our Junior School Promise
+                    </p>
+                    <p className="text-white text-sm leading-relaxed">
+                      Every Grade 7–9 learner grows into a confident, disciplined
+                      and well-rounded individual — ready to shine at Senior School
+                      and beyond.
+                    </p>
+                    <div className="mt-4 flex gap-2 flex-wrap">
+                      {['Science Lab', 'Future Ready'].map((tag) => (
+                        <span
+                          key={tag}
+                          className="bg-white/20 text-white text-xs font-semibold px-2.5 py-1 rounded-full border border-white/25"
+                        >
+                          {tag}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            {/* Subject cards */}
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {juniorSchool.map(({ icon: Icon, label, desc }, i) => (
                 <div key={label} className="group bg-white border border-gray-100 rounded-lg p-5 shadow-sm hover:shadow-lg hover:-translate-y-1 hover:border-green-300 cursor-default"
