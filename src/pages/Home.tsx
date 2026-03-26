@@ -42,6 +42,19 @@ export function Home() {
     return () => clearInterval(t);
   }, []);
 
+  // Upper Primary photo slideshow
+  const upperPrimaryImages = [
+    { src: '/upper-primary-classroom-1.jpg', alt: 'Teacher guiding Upper Primary learners at Kabati Fly-over School' },
+    { src: '/upper-primary-classroom-2.jpg', alt: 'Upper Primary learner using a computer at Kabati Fly-over School' },
+  ];
+  const [upperSlide, setUpperSlide] = useState(0);
+  useEffect(() => {
+    const t = setInterval(() => {
+      setUpperSlide((p) => (p + 1) % upperPrimaryImages.length);
+    }, 4500);
+    return () => clearInterval(t);
+  }, []);
+
   // Lower Primary photo slideshow
   const lowerPrimaryImages = [
     { src: '/lower-primary-classroom.jpg',   alt: 'Grade 1–3 learners attentively engaged in class at Kabati Fly-over School' },
@@ -447,6 +460,102 @@ export function Home() {
               </div>
               <div className="flex-1 h-0.5 bg-gray-200 ml-4"></div>
             </div>
+
+            {/* ── Photo introduction ── */}
+            <div
+              className="mb-8"
+              style={{
+                opacity: upperRef.inView ? 1 : 0,
+                transform: upperRef.inView ? 'translateY(0)' : 'translateY(24px)',
+                transition: 'opacity 0.65s ease 0.1s, transform 0.65s ease 0.1s',
+              }}
+            >
+              <div className="grid grid-cols-1 md:grid-cols-5 gap-4" style={{ minHeight: '300px' }}>
+
+                {/* ── Large photo slideshow (spans 3 cols) ── */}
+                <div className="md:col-span-3 relative group overflow-hidden rounded-2xl shadow-md bg-green-900" style={{ minHeight: '300px' }}>
+                  {upperPrimaryImages.map((img, idx) => (
+                    <img
+                      key={img.src}
+                      src={img.src}
+                      alt={img.alt}
+                      className="absolute inset-0 w-full h-full object-cover object-center transition-opacity duration-1000"
+                      style={{ opacity: idx === upperSlide ? 1 : 0, minHeight: '300px' }}
+                    />
+                  ))}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/65 via-black/15 to-transparent" />
+                  {/* Dot indicators */}
+                  <div className="absolute top-3 right-3 flex gap-1.5 z-10">
+                    {upperPrimaryImages.map((_, idx) => (
+                      <button
+                        key={idx}
+                        onClick={() => setUpperSlide(idx)}
+                        aria-label={`Show upper primary image ${idx + 1}`}
+                        className={`rounded-full transition-all duration-300 ${
+                          idx === upperSlide ? 'w-5 h-2 bg-white' : 'w-2 h-2 bg-white/50 hover:bg-white/80'
+                        }`}
+                      />
+                    ))}
+                  </div>
+                  <div className="absolute bottom-0 left-0 p-5 z-10">
+                    <span className="inline-block bg-green-600 text-white text-xs font-bold px-3 py-1 rounded-full mb-2 uppercase tracking-wider">
+                      Grade 4 – 6
+                    </span>
+                    <p className="text-white text-sm font-medium leading-snug drop-shadow max-w-xs">
+                      Dedicated teachers and hands-on learning — shaping confident,
+                      critical thinkers ready for the next stage.
+                    </p>
+                  </div>
+                  <div className="absolute inset-0 bg-green-600/0 group-hover:bg-green-600/10 transition-colors duration-500 pointer-events-none" />
+                </div>
+
+                {/* ── Right column — callout cards ── */}
+                <div className="md:col-span-2 flex flex-col gap-4">
+
+                  {/* Feature list card */}
+                  <div className="bg-white border border-gray-100 rounded-2xl shadow-sm p-5 flex-1 flex flex-col justify-center">
+                    <p className="text-xs font-bold uppercase tracking-widest text-green-600 mb-3">
+                      What Makes It Special
+                    </p>
+                    <ul className="space-y-2">
+                      {[
+                        'Science lab & computer studies integrated',
+                        'Agriculture & practical life skills',
+                        'Strong CBC subject coverage',
+                        'Preparation for Junior School transition',
+                      ].map((point) => (
+                        <li key={point} className="flex items-start gap-2 text-sm text-gray-700">
+                          <span className="w-2 h-2 bg-green-500 rounded-full flex-shrink-0 mt-1.5"></span>
+                          {point}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+
+                  {/* Callout card */}
+                  <div className="bg-gradient-to-br from-green-600 to-green-700 rounded-2xl p-5 flex flex-col justify-center shadow-md flex-1">
+                    <p className="text-green-100 text-xs font-bold uppercase tracking-widest mb-2">
+                      Our Upper Primary Promise
+                    </p>
+                    <p className="text-white text-sm leading-relaxed">
+                      Every Grade 4–6 learner is equipped with the knowledge,
+                      skills and confidence to excel — in class and beyond.
+                    </p>
+                    <div className="mt-4 flex gap-2 flex-wrap">
+                      {['CBC Aligned', 'Tech Ready'].map((tag) => (
+                        <span
+                          key={tag}
+                          className="bg-white/20 text-white text-xs font-semibold px-2.5 py-1 rounded-full border border-white/25"
+                        >
+                          {tag}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            {/* Subject cards */}
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
               {upperPrimary.map(({ icon: Icon, label, desc }, i) => (
                 <div key={label} className="group bg-white border border-gray-100 rounded-lg p-5 shadow-sm hover:shadow-lg hover:-translate-y-1 hover:border-green-300 cursor-default"
