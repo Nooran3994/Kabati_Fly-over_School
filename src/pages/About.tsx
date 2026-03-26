@@ -277,7 +277,7 @@ export function About() {
 
       {/* ── Leadership ── */}
       <section className="py-16 bg-gray-50">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-3xl font-bold text-center text-gray-800 mb-4">Our Leadership</h2>
           <p className="text-center text-gray-600 mb-10 max-w-2xl mx-auto">
             Kabati Flyover School Limited is a co-operative institution registered as a
@@ -285,7 +285,9 @@ export function About() {
             Executive Committee of five members is elected every three years to provide
             strategic direction.
           </p>
-          <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-8">
+
+          {/* Chairmen grid */}
+          <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-8 mb-8">
             <h3 className="text-lg font-bold text-gray-800 mb-4">Chairmen Through the Years</h3>
             <div className="flex flex-wrap gap-3">
               {[
@@ -301,14 +303,62 @@ export function About() {
                 </div>
               ))}
             </div>
-            <div className="mt-8 pt-6 border-t border-gray-100">
-              <h3 className="text-lg font-bold text-gray-800 mb-2">School Administration</h3>
-              <p className="text-gray-600 text-sm leading-relaxed">
-                The day-to-day running of the school is managed by our School Administrator,
-                <strong> Madam Carolyn Wanjiru</strong> — the only Administrative Officer the
-                school has had since inception, a testament to the stability and continuity
-                that has defined Kabati Fly-over School from day one.
-              </p>
+          </div>
+
+          {/* Administrator profile card */}
+          <div className="bg-white rounded-2xl shadow-md border border-gray-100 overflow-hidden">
+            <div className="flex flex-col md:flex-row">
+
+              {/* Photo */}
+              <div className="md:w-72 flex-shrink-0 relative">
+                <img
+                  src="/admin-carolyn.jpg"
+                  alt="Madam Carolyn Wanjiru — School Administrator"
+                  className="w-full h-72 md:h-full object-cover object-top"
+                />
+                {/* Green tint overlay at bottom */}
+                <div className="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-t from-green-800/60 to-transparent md:hidden" />
+              </div>
+
+              {/* Content */}
+              <div className="flex-1 p-8 flex flex-col justify-center">
+                {/* Badge */}
+                <span className="inline-flex items-center gap-1.5 bg-green-100 text-green-700 text-xs font-bold px-3 py-1.5 rounded-full w-fit mb-4 border border-green-200">
+                  <Award size={12} />
+                  School Administration
+                </span>
+
+                <h3 className="text-2xl font-bold text-gray-800 mb-1">
+                  Madam Carolyn Wanjiru
+                </h3>
+                <p className="text-green-600 font-semibold text-sm mb-5">
+                  School Administrator &amp; Administrator Officer
+                </p>
+
+                <p className="text-gray-600 text-sm leading-relaxed mb-6">
+                  Madam Carolyn Wanjiru is the cornerstone of Kabati Fly-over School's
+                  day-to-day operations. She is the only Administrative Officer the school
+                  has had since its very first day in <strong>2007</strong> — a remarkable
+                  testament to dedication, loyalty and the stability that has defined this
+                  institution from the beginning.
+                </p>
+
+                {/* Stat pills */}
+                <div className="flex flex-wrap gap-3">
+                  <div className="bg-gray-50 border border-gray-200 rounded-xl px-4 py-3 text-center min-w-[100px]">
+                    <div className="text-2xl font-bold text-green-600">18+</div>
+                    <div className="text-xs text-gray-500 mt-0.5">Years of Service</div>
+                  </div>
+                  <div className="bg-gray-50 border border-gray-200 rounded-xl px-4 py-3 text-center min-w-[100px]">
+                    <div className="text-2xl font-bold text-green-600">2007</div>
+                    <div className="text-xs text-gray-500 mt-0.5">Year Joined</div>
+                  </div>
+                  <div className="bg-green-600 rounded-xl px-4 py-3 text-center min-w-[100px]">
+                    <div className="text-2xl font-bold text-white">1st</div>
+                    <div className="text-xs text-green-100 mt-0.5">& Only Admin</div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
