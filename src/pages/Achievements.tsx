@@ -120,7 +120,7 @@ const colorMap: Record<string, { badge: string; icon: string; border: string; hi
 
 const stats = [
   { icon: Star,          value: '349.33', label: 'First KCPE Mean Score (2009)' },
-  { icon: Trophy,        value: '975',    label: 'Learners Today' },
+  { icon: Trophy,        value: '975+',   label: 'Learners Today' },
   { icon: Building,      value: '3',      label: 'Plots Owned' },
   { icon: GraduationCap, value: '2023',   label: 'Junior School Opened' },
 ];
@@ -142,23 +142,31 @@ export function Achievements() {
 
   return (
     <div>
-      {/* Hero with background image */}
+      {/* Hero — classroom photo with blur overlay */}
       <section
-        className="relative text-white py-20"
-        style={{
-          backgroundImage: 'url(/achievements-hero.png)',
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-        }}
+        className="relative text-white py-20 overflow-hidden"
       >
-        <div className="absolute inset-0 bg-gradient-to-r from-green-800/80 to-green-600/70"></div>
+        {/* Blurred background */}
+        <div
+          className="absolute inset-0 z-0"
+          style={{
+            backgroundImage: 'url(/achievements-hero.png)',
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+            filter: 'blur(3px)',
+            transform: 'scale(1.06)',
+          }}
+        />
+        {/* Dark overlay */}
+        <div className="absolute inset-0 z-0 bg-gradient-to-r from-green-800/75 to-green-600/65" />
+
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h1 className="text-4xl md:text-5xl font-bold mb-4 drop-shadow-lg">
             Achievements &amp; Milestones
           </h1>
           <p className="text-xl text-green-100 max-w-2xl mx-auto drop-shadow">
             Eighteen years of relentless growth, excellence and community impact —
-            from 64 learners in a rented room to 975 learners on our own campus.
+            from 64 learners in a rented room to 975+ learners on our own campus.
           </p>
         </div>
       </section>
@@ -195,18 +203,10 @@ export function Achievements() {
                   }`}
               >
                 {cat}
-                {cat !== 'All' && (
-                  <span className={`ml-2 text-xs px-1.5 py-0.5 rounded-full
-                    ${activeCategory === cat ? 'bg-green-500 text-white' : 'bg-gray-100 text-gray-500'}`}>
-                    {milestones.filter((m) => m.category === cat).length}
-                  </span>
-                )}
-                {cat === 'All' && (
-                  <span className={`ml-2 text-xs px-1.5 py-0.5 rounded-full
-                    ${activeCategory === cat ? 'bg-green-500 text-white' : 'bg-gray-100 text-gray-500'}`}>
-                    {milestones.length}
-                  </span>
-                )}
+                <span className={`ml-2 text-xs px-1.5 py-0.5 rounded-full
+                  ${activeCategory === cat ? 'bg-green-500 text-white' : 'bg-gray-100 text-gray-500'}`}>
+                  {cat === 'All' ? milestones.length : milestones.filter((m) => m.category === cat).length}
+                </span>
               </button>
             ))}
           </div>
